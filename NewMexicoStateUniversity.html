@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+
+<title>NewMexico_adjacency</title>
+
+<style>
+
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #FFFFFF;
+}
+
+graph {
+    width: 100%;
+    height: 100%;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="graph"></div>
+
+
+<!-- 3D force graph -->
+<script src="https://cdn.jsdelivr.net/npm/3d-force-graph"></script>
+
+<script type="module">
+
+import ForceGraph3D
+    from "https://cdn.jsdelivr.net/npm/3d-force-graph/+esm";
+
+const graphData = {"nodes": [{"id": "Zhang, Jinfa", "name": "Zhang, Jinfa", "degree": 4, "strength": 46.0}, {"id": "Zhu, Yi", "name": "Zhu, Yi", "degree": 2, "strength": 34.0}, {"id": "Cramer, Christopher S", "name": "Cramer, Christopher S", "degree": 1, "strength": 1.0}, {"id": "Schutte, Brian J", "name": "Schutte, Brian J", "degree": 13, "strength": 43.0}, {"id": "Djaman, Koffi", "name": "Djaman, Koffi", "degree": 7, "strength": 28.0}, {"id": "Puppala, Naveen", "name": "Puppala, Naveen", "degree": 6, "strength": 10.0}, {"id": "Lauriault, Leonard M", "name": "Lauriault, Leonard M", "degree": 10, "strength": 50.0}, {"id": "Sanogo, Soum", "name": "Sanogo, Soum", "degree": 15, "strength": 41.0}, {"id": "Grover, Kulbhushan K", "name": "Grover, Kulbhushan K", "degree": 7, "strength": 23.0}, {"id": "Idowu, Omololu John", "name": "Idowu, Omololu John", "degree": 11, "strength": 52.0}, {"id": "Lozada, Dennis Nicuh", "name": "Lozada, Dennis Nicuh", "degree": 4, "strength": 11.0}, {"id": "Yao, Shengrui", "name": "Yao, Shengrui", "degree": 1, "strength": 1.0}, {"id": "Darapuneni, Murali K", "name": "Darapuneni, Murali K", "degree": 12, "strength": 65.0}, {"id": "Pratt, Richard C", "name": "Pratt, Richard C", "degree": 3, "strength": 3.0}, {"id": "Ghimire, Rajan", "name": "Ghimire, Rajan", "degree": 7, "strength": 23.0}, {"id": "Randall, Jennifer J", "name": "Randall, Jennifer J", "degree": 3, "strength": 3.0}, {"id": "RomeroOlivares, Adriana L", "name": "RomeroOlivares, Adriana L", "degree": 2, "strength": 3.0}, {"id": "Lehnhoff, Erik A", "name": "Lehnhoff, Erik A", "degree": 6, "strength": 30.0}, {"id": "Bosland, Paul W", "name": "Bosland, Paul W", "degree": 2, "strength": 7.0}, {"id": "Creamer, Rebecca", "name": "Creamer, Rebecca", "degree": 3, "strength": 6.0}, {"id": "Leinauer, Bernd", "name": "Leinauer, Bernd", "degree": 1, "strength": 3.0}, {"id": "Angadi, Sangamesh V", "name": "Angadi, Sangamesh V", "degree": 8, "strength": 49.0}, {"id": "Beck, Leslie L", "name": "Beck, Leslie L", "degree": 8, "strength": 24.0}, {"id": "Ferrenberg, Scott", "name": "Ferrenberg, Scott", "degree": 1, "strength": 2.0}, {"id": "Kankarla, Vanaja", "name": "Kankarla, Vanaja", "degree": 1, "strength": 2.0}], "links": [{"source": "Zhang, Jinfa", "target": "Zhu, Yi", "weight": 31.0}, {"source": "Zhang, Jinfa", "target": "Sanogo, Soum", "weight": 11.0}, {"source": "Zhang, Jinfa", "target": "Idowu, Omololu John", "weight": 3.0}, {"source": "Zhang, Jinfa", "target": "Darapuneni, Murali K", "weight": 1.0}, {"source": "Zhu, Yi", "target": "Sanogo, Soum", "weight": 3.0}, {"source": "Cramer, Christopher S", "target": "Schutte, Brian J", "weight": 1.0}, {"source": "Schutte, Brian J", "target": "Lauriault, Leonard M", "weight": 2.0}, {"source": "Schutte, Brian J", "target": "Sanogo, Soum", "weight": 5.0}, {"source": "Schutte, Brian J", "target": "Grover, Kulbhushan K", "weight": 2.0}, {"source": "Schutte, Brian J", "target": "Idowu, Omololu John", "weight": 5.0}, {"source": "Schutte, Brian J", "target": "Darapuneni, Murali K", "weight": 1.0}, {"source": "Schutte, Brian J", "target": "Pratt, Richard C", "weight": 1.0}, {"source": "Schutte, Brian J", "target": "Ghimire, Rajan", "weight": 1.0}, {"source": "Schutte, Brian J", "target": "Lehnhoff, Erik A", "weight": 13.0}, {"source": "Schutte, Brian J", "target": "Creamer, Rebecca", "weight": 2.0}, {"source": "Schutte, Brian J", "target": "Angadi, Sangamesh V", "weight": 2.0}, {"source": "Schutte, Brian J", "target": "Beck, Leslie L", "weight": 6.0}, {"source": "Schutte, Brian J", "target": "Kankarla, Vanaja", "weight": 2.0}, {"source": "Djaman, Koffi", "target": "Puppala, Naveen", "weight": 2.0}, {"source": "Djaman, Koffi", "target": "Lauriault, Leonard M", "weight": 5.0}, {"source": "Djaman, Koffi", "target": "Sanogo, Soum", "weight": 2.0}, {"source": "Djaman, Koffi", "target": "Grover, Kulbhushan K", "weight": 2.0}, {"source": "Djaman, Koffi", "target": "Idowu, Omololu John", "weight": 2.0}, {"source": "Djaman, Koffi", "target": "Darapuneni, Murali K", "weight": 12.0}, {"source": "Djaman, Koffi", "target": "Angadi, Sangamesh V", "weight": 3.0}, {"source": "Puppala, Naveen", "target": "Sanogo, Soum", "weight": 3.0}, {"source": "Puppala, Naveen", "target": "Lozada, Dennis Nicuh", "weight": 1.0}, {"source": "Puppala, Naveen", "target": "Darapuneni, Murali K", "weight": 2.0}, {"source": "Puppala, Naveen", "target": "Randall, Jennifer J", "weight": 1.0}, {"source": "Puppala, Naveen", "target": "Angadi, Sangamesh V", "weight": 1.0}, {"source": "Lauriault, Leonard M", "target": "Sanogo, Soum", "weight": 1.0}, {"source": "Lauriault, Leonard M", "target": "Grover, Kulbhushan K", "weight": 3.0}, {"source": "Lauriault, Leonard M", "target": "Idowu, Omololu John", "weight": 5.0}, {"source": "Lauriault, Leonard M", "target": "Darapuneni, Murali K", "weight": 23.0}, {"source": "Lauriault, Leonard M", "target": "Pratt, Richard C", "weight": 1.0}, {"source": "Lauriault, Leonard M", "target": "Ghimire, Rajan", "weight": 1.0}, {"source": "Lauriault, Leonard M", "target": "Angadi, Sangamesh V", "weight": 8.0}, {"source": "Lauriault, Leonard M", "target": "Beck, Leslie L", "weight": 1.0}, {"source": "Sanogo, Soum", "target": "Grover, Kulbhushan K", "weight": 1.0}, {"source": "Sanogo, Soum", "target": "Idowu, Omololu John", "weight": 2.0}, {"source": "Sanogo, Soum", "target": "Lozada, Dennis Nicuh", "weight": 3.0}, {"source": "Sanogo, Soum", "target": "Darapuneni, Murali K", "weight": 1.0}, {"source": "Sanogo, Soum", "target": "Randall, Jennifer J", "weight": 1.0}, {"source": "Sanogo, Soum", "target": "Lehnhoff, Erik A", "weight": 4.0}, {"source": "Sanogo, Soum", "target": "Bosland, Paul W", "weight": 1.0}, {"source": "Sanogo, Soum", "target": "Creamer, Rebecca", "weight": 1.0}, {"source": "Sanogo, Soum", "target": "Beck, Leslie L", "weight": 2.0}, {"source": "Grover, Kulbhushan K", "target": "Idowu, Omololu John", "weight": 4.0}, {"source": "Grover, Kulbhushan K", "target": "Darapuneni, Murali K", "weight": 3.0}, {"source": "Grover, Kulbhushan K", "target": "Angadi, Sangamesh V", "weight": 8.0}, {"source": "Idowu, Omololu John", "target": "Darapuneni, Murali K", "weight": 8.0}, {"source": "Idowu, Omololu John", "target": "Ghimire, Rajan", "weight": 9.0}, {"source": "Idowu, Omololu John", "target": "Lehnhoff, Erik A", "weight": 3.0}, {"source": "Idowu, Omololu John", "target": "Angadi, Sangamesh V", "weight": 8.0}, {"source": "Idowu, Omololu John", "target": "Beck, Leslie L", "weight": 3.0}, {"source": "Lozada, Dennis Nicuh", "target": "Yao, Shengrui", "weight": 1.0}, {"source": "Lozada, Dennis Nicuh", "target": "Bosland, Paul W", "weight": 6.0}, {"source": "Darapuneni, Murali K", "target": "Pratt, Richard C", "weight": 1.0}, {"source": "Darapuneni, Murali K", "target": "Ghimire, Rajan", "weight": 1.0}, {"source": "Darapuneni, Murali K", "target": "Angadi, Sangamesh V", "weight": 10.0}, {"source": "Darapuneni, Murali K", "target": "Beck, Leslie L", "weight": 2.0}, {"source": "Ghimire, Rajan", "target": "Lehnhoff, Erik A", "weight": 1.0}, {"source": "Ghimire, Rajan", "target": "Angadi, Sangamesh V", "weight": 9.0}, {"source": "Ghimire, Rajan", "target": "Beck, Leslie L", "weight": 1.0}, {"source": "Randall, Jennifer J", "target": "RomeroOlivares, Adriana L", "weight": 1.0}, {"source": "RomeroOlivares, Adriana L", "target": "Ferrenberg, Scott", "weight": 2.0}, {"source": "Lehnhoff, Erik A", "target": "Creamer, Rebecca", "weight": 3.0}, {"source": "Lehnhoff, Erik A", "target": "Beck, Leslie L", "weight": 6.0}, {"source": "Leinauer, Bernd", "target": "Beck, Leslie L", "weight": 3.0}]};
+
+console.log("First edge:", graphData.links[0]);
+console.log("Nodes:", graphData.nodes.length);
+console.log("Edges:", graphData.links.length);
+
+const Graph = ForceGraph3D()(
+    document.getElementById("graph")
+);
+
+Graph
+    .nodeId("id")
+    .linkSource("source")
+    .linkTarget("target")
+    .graphData(graphData)
+    .backgroundColor("#FFFFFF")
+    .showNavInfo(false)
+
+    // Node appearance
+    .nodeColor(() => "#073763")
+    .nodeVal(node =>
+        1.5 + Math.sqrt(node.strength + 1) * 0.45
+    )
+
+    // Edge appearance
+    .linkColor(() => "#648FC9")
+    .linkOpacity(0.7)
+    .linkWidth(link =>
+        0.5 + Math.sqrt(Number(link.weight) || 1) * 0.35
+    );
+
+</script>
+
+</body>
+</html>
+

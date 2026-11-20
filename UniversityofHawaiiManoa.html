@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+
+<title>Hawaii_adjacency</title>
+
+<style>
+
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #FFFFFF;
+}
+
+graph {
+    width: 100%;
+    height: 100%;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="graph"></div>
+
+
+<!-- 3D force graph -->
+<script src="https://cdn.jsdelivr.net/npm/3d-force-graph"></script>
+
+<script type="module">
+
+import ForceGraph3D
+    from "https://cdn.jsdelivr.net/npm/3d-force-graph/+esm";
+
+const graphData = {"nodes": [{"id": "Arif, Mohammad", "name": "Arif, Mohammad", "degree": 6, "strength": 37.0}, {"id": "Wang, KoonHui", "name": "Wang, KoonHui", "degree": 8, "strength": 17.0}, {"id": "Hu, John S", "name": "Hu, John S", "degree": 4, "strength": 43.0}, {"id": "Melzer, Michael J", "name": "Melzer, Michael J", "degree": 6, "strength": 41.0}, {"id": "Hynson, Nicole A", "name": "Hynson, Nicole A", "degree": 3, "strength": 12.0}, {"id": "Kantar, Michael B", "name": "Kantar, Michael B", "degree": 8, "strength": 21.0}, {"id": "Muszynski, Michael G", "name": "Muszynski, Michael G", "degree": 2, "strength": 4.0}, {"id": "Paull, Robert E", "name": "Paull, Robert E", "degree": 2, "strength": 5.0}, {"id": "Radovich, Theodore J K", "name": "Radovich, Theodore J K", "degree": 4, "strength": 13.0}, {"id": "Lincoln, Noa Kekuewa", "name": "Lincoln, Noa Kekuewa", "degree": 3, "strength": 8.0}, {"id": "Christopher, David A", "name": "Christopher, David A", "degree": 1, "strength": 3.0}, {"id": "Tian, Miaoying", "name": "Tian, Miaoying", "degree": 2, "strength": 4.0}, {"id": "Heyduk, Karolina", "name": "Heyduk, Karolina", "degree": 3, "strength": 3.0}, {"id": "Tribble, Carrie M", "name": "Tribble, Carrie M", "degree": 1, "strength": 1.0}, {"id": "Muir, Christopher D", "name": "Muir, Christopher D", "degree": 3, "strength": 4.0}, {"id": "Sherwood, Alison R", "name": "Sherwood, Alison R", "degree": 2, "strength": 7.0}, {"id": "Barton, Kasey E", "name": "Barton, Kasey E", "degree": 2, "strength": 8.0}, {"id": "Westerband, Andrea C", "name": "Westerband, Andrea C", "degree": 1, "strength": 6.0}, {"id": "Du, ZhiYan", "name": "Du, ZhiYan", "degree": 1, "strength": 1.0}, {"id": "Alvarez, Anne M", "name": "Alvarez, Anne M", "degree": 4, "strength": 33.0}, {"id": "Shikano, Ikkei", "name": "Shikano, Ikkei", "degree": 1, "strength": 3.0}, {"id": "Amend, Anthony S", "name": "Amend, Anthony S", "degree": 5, "strength": 13.0}, {"id": "Cabrera, Feresa P", "name": "Cabrera, Feresa P", "degree": 2, "strength": 7.0}], "links": [{"source": "Arif, Mohammad", "target": "Wang, KoonHui", "weight": 1.0}, {"source": "Arif, Mohammad", "target": "Hu, John S", "weight": 4.0}, {"source": "Arif, Mohammad", "target": "Melzer, Michael J", "weight": 1.0}, {"source": "Arif, Mohammad", "target": "Hynson, Nicole A", "weight": 1.0}, {"source": "Arif, Mohammad", "target": "Alvarez, Anne M", "weight": 29.0}, {"source": "Arif, Mohammad", "target": "Amend, Anthony S", "weight": 1.0}, {"source": "Wang, KoonHui", "target": "Hu, John S", "weight": 3.0}, {"source": "Wang, KoonHui", "target": "Melzer, Michael J", "weight": 3.0}, {"source": "Wang, KoonHui", "target": "Kantar, Michael B", "weight": 2.0}, {"source": "Wang, KoonHui", "target": "Radovich, Theodore J K", "weight": 3.0}, {"source": "Wang, KoonHui", "target": "Tian, Miaoying", "weight": 1.0}, {"source": "Wang, KoonHui", "target": "Alvarez, Anne M", "weight": 1.0}, {"source": "Wang, KoonHui", "target": "Shikano, Ikkei", "weight": 3.0}, {"source": "Hu, John S", "target": "Melzer, Michael J", "weight": 34.0}, {"source": "Hu, John S", "target": "Alvarez, Anne M", "weight": 2.0}, {"source": "Melzer, Michael J", "target": "Kantar, Michael B", "weight": 1.0}, {"source": "Melzer, Michael J", "target": "Radovich, Theodore J K", "weight": 1.0}, {"source": "Melzer, Michael J", "target": "Alvarez, Anne M", "weight": 1.0}, {"source": "Hynson, Nicole A", "target": "Muir, Christopher D", "weight": 2.0}, {"source": "Hynson, Nicole A", "target": "Amend, Anthony S", "weight": 9.0}, {"source": "Kantar, Michael B", "target": "Muszynski, Michael G", "weight": 3.0}, {"source": "Kantar, Michael B", "target": "Paull, Robert E", "weight": 2.0}, {"source": "Kantar, Michael B", "target": "Radovich, Theodore J K", "weight": 7.0}, {"source": "Kantar, Michael B", "target": "Lincoln, Noa Kekuewa", "weight": 3.0}, {"source": "Kantar, Michael B", "target": "Heyduk, Karolina", "weight": 1.0}, {"source": "Kantar, Michael B", "target": "Barton, Kasey E", "weight": 2.0}, {"source": "Muszynski, Michael G", "target": "Du, ZhiYan", "weight": 1.0}, {"source": "Paull, Robert E", "target": "Lincoln, Noa Kekuewa", "weight": 3.0}, {"source": "Radovich, Theodore J K", "target": "Lincoln, Noa Kekuewa", "weight": 2.0}, {"source": "Christopher, David A", "target": "Tian, Miaoying", "weight": 3.0}, {"source": "Heyduk, Karolina", "target": "Tribble, Carrie M", "weight": 1.0}, {"source": "Heyduk, Karolina", "target": "Muir, Christopher D", "weight": 1.0}, {"source": "Muir, Christopher D", "target": "Amend, Anthony S", "weight": 1.0}, {"source": "Sherwood, Alison R", "target": "Amend, Anthony S", "weight": 1.0}, {"source": "Sherwood, Alison R", "target": "Cabrera, Feresa P", "weight": 6.0}, {"source": "Barton, Kasey E", "target": "Westerband, Andrea C", "weight": 6.0}, {"source": "Amend, Anthony S", "target": "Cabrera, Feresa P", "weight": 1.0}]};
+
+console.log("First edge:", graphData.links[0]);
+console.log("Nodes:", graphData.nodes.length);
+console.log("Edges:", graphData.links.length);
+
+const Graph = ForceGraph3D()(
+    document.getElementById("graph")
+);
+
+Graph
+    .nodeId("id")
+    .linkSource("source")
+    .linkTarget("target")
+    .graphData(graphData)
+    .backgroundColor("#FFFFFF")
+    .showNavInfo(false)
+
+    // Node appearance
+    .nodeColor(() => "#073763")
+    .nodeVal(node =>
+        1.5 + Math.sqrt(node.strength + 1) * 0.45
+    )
+
+    // Edge appearance
+    .linkColor(() => "#648FC9")
+    .linkOpacity(0.7)
+    .linkWidth(link =>
+        0.5 + Math.sqrt(Number(link.weight) || 1) * 0.35
+    );
+
+</script>
+
+</body>
+</html>
+

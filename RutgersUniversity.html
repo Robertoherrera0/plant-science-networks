@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+
+<title>Rutgers_adjacency</title>
+
+<style>
+
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #FFFFFF;
+}
+
+graph {
+    width: 100%;
+    height: 100%;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="graph"></div>
+
+
+<!-- 3D force graph -->
+<script src="https://cdn.jsdelivr.net/npm/3d-force-graph"></script>
+
+<script type="module">
+
+import ForceGraph3D
+    from "https://cdn.jsdelivr.net/npm/3d-force-graph/+esm";
+
+const graphData = {"nodes": [{"id": "Huang, Bingru", "name": "Huang, Bingru", "degree": 3, "strength": 3.0}, {"id": "Xu, Ming", "name": "Xu, Ming", "degree": 1, "strength": 1.0}, {"id": "Murphy, James A", "name": "Murphy, James A", "degree": 6, "strength": 17.0}, {"id": "Zhang, Ning", "name": "Zhang, Ning", "degree": 8, "strength": 22.0}, {"id": "Dong, Juan", "name": "Dong, Juan", "degree": 2, "strength": 12.0}, {"id": "Guo, Xiaoyu", "name": "Guo, Xiaoyu", "degree": 2, "strength": 12.0}, {"id": "Maliga, Pal", "name": "Maliga, Pal", "degree": 2, "strength": 2.0}, {"id": "Messing, Joachim", "name": "Messing, Joachim", "degree": 3, "strength": 4.0}, {"id": "Simon, James Edward", "name": "Simon, James Edward", "degree": 5, "strength": 67.0}, {"id": "Wu, Qingli", "name": "Wu, Qingli", "degree": 4, "strength": 65.0}, {"id": "Besancon, Thierry E", "name": "Besancon, Thierry E", "degree": 3, "strength": 3.0}, {"id": "Elmore, Matthew T", "name": "Elmore, Matthew T", "degree": 6, "strength": 19.0}, {"id": "Bhattacharya, Debashish", "name": "Bhattacharya, Debashish", "degree": 7, "strength": 17.0}, {"id": "Hillman, Bradley I", "name": "Hillman, Bradley I", "degree": 4, "strength": 8.0}, {"id": "Falkowski, Paul G", "name": "Falkowski, Paul G", "degree": 2, "strength": 8.0}, {"id": "Ribnicky, David", "name": "Ribnicky, David", "degree": 1, "strength": 1.0}, {"id": "Honig, Josh A", "name": "Honig, Josh A", "degree": 6, "strength": 10.0}, {"id": "Dismukes, G Charles", "name": "Dismukes, G Charles", "degree": 2, "strength": 3.0}, {"id": "Ho, ChiTang", "name": "Ho, ChiTang", "degree": 5, "strength": 13.0}, {"id": "Zheng, Xi", "name": "Zheng, Xi", "degree": 1, "strength": 2.0}, {"id": "Molnar, Thomas J", "name": "Molnar, Thomas J", "degree": 3, "strength": 9.0}, {"id": "White, James Francis", "name": "White, James Francis", "degree": 4, "strength": 10.0}, {"id": "Di, Rong", "name": "Di, Rong", "degree": 10, "strength": 13.0}, {"id": "Diehl, Katherine H", "name": "Diehl, Katherine H", "degree": 5, "strength": 10.0}, {"id": "Koppenhofer, Albrecht M", "name": "Koppenhofer, Albrecht M", "degree": 5, "strength": 13.0}, {"id": "RodriguezSaona, Cesar", "name": "RodriguezSaona, Cesar", "degree": 2, "strength": 7.0}, {"id": "Dooner, Hugo K", "name": "Dooner, Hugo K", "degree": 1, "strength": 1.0}, {"id": "Herniter, Ira A", "name": "Herniter, Ira A", "degree": 1, "strength": 2.0}, {"id": "Vorsa, Nicholi", "name": "Vorsa, Nicholi", "degree": 3, "strength": 5.0}, {"id": "Leustek, Thomas", "name": "Leustek, Thomas", "degree": 1, "strength": 2.0}, {"id": "Smouse, Peter E", "name": "Smouse, Peter E", "degree": 1, "strength": 1.0}, {"id": "Islam, Tarikul", "name": "Islam, Tarikul", "degree": 1, "strength": 2.0}], "links": [{"source": "Huang, Bingru", "target": "Xu, Ming", "weight": 1.0}, {"source": "Huang, Bingru", "target": "Murphy, James A", "weight": 1.0}, {"source": "Huang, Bingru", "target": "Zhang, Ning", "weight": 1.0}, {"source": "Murphy, James A", "target": "Zhang, Ning", "weight": 6.0}, {"source": "Murphy, James A", "target": "Elmore, Matthew T", "weight": 5.0}, {"source": "Murphy, James A", "target": "Honig, Josh A", "weight": 1.0}, {"source": "Murphy, James A", "target": "Diehl, Katherine H", "weight": 2.0}, {"source": "Murphy, James A", "target": "Koppenhofer, Albrecht M", "weight": 2.0}, {"source": "Zhang, Ning", "target": "Bhattacharya, Debashish", "weight": 5.0}, {"source": "Zhang, Ning", "target": "Hillman, Bradley I", "weight": 3.0}, {"source": "Zhang, Ning", "target": "Ho, ChiTang", "weight": 2.0}, {"source": "Zhang, Ning", "target": "Molnar, Thomas J", "weight": 2.0}, {"source": "Zhang, Ning", "target": "White, James Francis", "weight": 2.0}, {"source": "Zhang, Ning", "target": "Di, Rong", "weight": 1.0}, {"source": "Dong, Juan", "target": "Guo, Xiaoyu", "weight": 11.0}, {"source": "Dong, Juan", "target": "Di, Rong", "weight": 1.0}, {"source": "Guo, Xiaoyu", "target": "Di, Rong", "weight": 1.0}, {"source": "Maliga, Pal", "target": "Messing, Joachim", "weight": 1.0}, {"source": "Maliga, Pal", "target": "Dismukes, G Charles", "weight": 1.0}, {"source": "Messing, Joachim", "target": "Dooner, Hugo K", "weight": 1.0}, {"source": "Messing, Joachim", "target": "Leustek, Thomas", "weight": 2.0}, {"source": "Simon, James Edward", "target": "Wu, Qingli", "weight": 59.0}, {"source": "Simon, James Edward", "target": "Besancon, Thierry E", "weight": 1.0}, {"source": "Simon, James Edward", "target": "Honig, Josh A", "weight": 2.0}, {"source": "Simon, James Edward", "target": "Ho, ChiTang", "weight": 3.0}, {"source": "Simon, James Edward", "target": "Di, Rong", "weight": 2.0}, {"source": "Wu, Qingli", "target": "Besancon, Thierry E", "weight": 1.0}, {"source": "Wu, Qingli", "target": "Ho, ChiTang", "weight": 4.0}, {"source": "Wu, Qingli", "target": "Di, Rong", "weight": 1.0}, {"source": "Besancon, Thierry E", "target": "Elmore, Matthew T", "weight": 1.0}, {"source": "Elmore, Matthew T", "target": "White, James Francis", "weight": 6.0}, {"source": "Elmore, Matthew T", "target": "Di, Rong", "weight": 1.0}, {"source": "Elmore, Matthew T", "target": "Diehl, Katherine H", "weight": 4.0}, {"source": "Elmore, Matthew T", "target": "Koppenhofer, Albrecht M", "weight": 2.0}, {"source": "Bhattacharya, Debashish", "target": "Hillman, Bradley I", "weight": 1.0}, {"source": "Bhattacharya, Debashish", "target": "Falkowski, Paul G", "weight": 6.0}, {"source": "Bhattacharya, Debashish", "target": "Ribnicky, David", "weight": 1.0}, {"source": "Bhattacharya, Debashish", "target": "Honig, Josh A", "weight": 1.0}, {"source": "Bhattacharya, Debashish", "target": "Dismukes, G Charles", "weight": 2.0}, {"source": "Bhattacharya, Debashish", "target": "Di, Rong", "weight": 1.0}, {"source": "Hillman, Bradley I", "target": "Honig, Josh A", "weight": 1.0}, {"source": "Hillman, Bradley I", "target": "Molnar, Thomas J", "weight": 3.0}, {"source": "Falkowski, Paul G", "target": "Di, Rong", "weight": 2.0}, {"source": "Honig, Josh A", "target": "Molnar, Thomas J", "weight": 4.0}, {"source": "Honig, Josh A", "target": "Smouse, Peter E", "weight": 1.0}, {"source": "Ho, ChiTang", "target": "Zheng, Xi", "weight": 2.0}, {"source": "Ho, ChiTang", "target": "Di, Rong", "weight": 2.0}, {"source": "White, James Francis", "target": "Diehl, Katherine H", "weight": 1.0}, {"source": "White, James Francis", "target": "Vorsa, Nicholi", "weight": 1.0}, {"source": "Di, Rong", "target": "Diehl, Katherine H", "weight": 1.0}, {"source": "Diehl, Katherine H", "target": "Koppenhofer, Albrecht M", "weight": 2.0}, {"source": "Koppenhofer, Albrecht M", "target": "RodriguezSaona, Cesar", "weight": 5.0}, {"source": "Koppenhofer, Albrecht M", "target": "Islam, Tarikul", "weight": 2.0}, {"source": "RodriguezSaona, Cesar", "target": "Vorsa, Nicholi", "weight": 2.0}, {"source": "Herniter, Ira A", "target": "Vorsa, Nicholi", "weight": 2.0}]};
+
+console.log("First edge:", graphData.links[0]);
+console.log("Nodes:", graphData.nodes.length);
+console.log("Edges:", graphData.links.length);
+
+const Graph = ForceGraph3D()(
+    document.getElementById("graph")
+);
+
+Graph
+    .nodeId("id")
+    .linkSource("source")
+    .linkTarget("target")
+    .graphData(graphData)
+    .backgroundColor("#FFFFFF")
+    .showNavInfo(false)
+
+    // Node appearance
+    .nodeColor(() => "#073763")
+    .nodeVal(node =>
+        1.5 + Math.sqrt(node.strength + 1) * 0.45
+    )
+
+    // Edge appearance
+    .linkColor(() => "#648FC9")
+    .linkOpacity(0.7)
+    .linkWidth(link =>
+        0.5 + Math.sqrt(Number(link.weight) || 1) * 0.35
+    );
+
+</script>
+
+</body>
+</html>
+

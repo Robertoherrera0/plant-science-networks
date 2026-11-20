@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+
+<title>Arizona_adjacency</title>
+
+<style>
+
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #FFFFFF;
+}
+
+graph {
+    width: 100%;
+    height: 100%;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="graph"></div>
+
+
+<!-- 3D force graph -->
+<script src="https://cdn.jsdelivr.net/npm/3d-force-graph"></script>
+
+<script type="module">
+
+import ForceGraph3D
+    from "https://cdn.jsdelivr.net/npm/3d-force-graph/+esm";
+
+const graphData = {"nodes": [{"id": "Gunatilaka, A A Leslie", "name": "Gunatilaka, A A Leslie", "degree": 2, "strength": 18.0}, {"id": "URen, Jana M", "name": "URen, Jana M", "degree": 2, "strength": 26.0}, {"id": "Mosher, Rebecca A", "name": "Mosher, Rebecca A", "degree": 3, "strength": 8.0}, {"id": "Palanivelu, Ravishankar", "name": "Palanivelu, Ravishankar", "degree": 4, "strength": 5.0}, {"id": "Woodson, Jesse D", "name": "Woodson, Jesse D", "degree": 2, "strength": 2.0}, {"id": "Yadegari, Ramin", "name": "Yadegari, Ramin", "degree": 2, "strength": 3.0}, {"id": "Barker, Michael S", "name": "Barker, Michael S", "degree": 4, "strength": 8.0}, {"id": "Pelosi, Jessie A", "name": "Pelosi, Jessie A", "degree": 2, "strength": 7.0}, {"id": "Dlugosch, Katrina M", "name": "Dlugosch, Katrina M", "degree": 4, "strength": 13.0}, {"id": "Bronstein, Judith L", "name": "Bronstein, Judith L", "degree": 4, "strength": 13.0}, {"id": "Lyons, Eric", "name": "Lyons, Eric", "degree": 7, "strength": 34.0}, {"id": "Pauli, Duke", "name": "Pauli, Duke", "degree": 5, "strength": 20.0}, {"id": "Tax, Frans E", "name": "Tax, Frans E", "degree": 1, "strength": 1.0}, {"id": "Arnold, A Elizabeth", "name": "Arnold, A Elizabeth", "degree": 8, "strength": 55.0}, {"id": "Baltrus, David A", "name": "Baltrus, David A", "degree": 2, "strength": 14.0}, {"id": "Nelson, Andrew D L", "name": "Nelson, Andrew D L", "degree": 8, "strength": 34.0}, {"id": "OrtegaBeltran, Alejandro", "name": "OrtegaBeltran, Alejandro", "degree": 2, "strength": 2.0}, {"id": "Frost, Christopher J", "name": "Frost, Christopher J", "degree": 2, "strength": 2.0}, {"id": "Saleska, Scott R", "name": "Saleska, Scott R", "degree": 5, "strength": 40.0}, {"id": "Wu, Jin", "name": "Wu, Jin", "degree": 3, "strength": 25.0}, {"id": "Smith, Marielle N", "name": "Smith, Marielle N", "degree": 2, "strength": 15.0}, {"id": "Beilstein, Mark A", "name": "Beilstein, Mark A", "degree": 6, "strength": 23.0}, {"id": "Schumaker, Karen S", "name": "Schumaker, Karen S", "degree": 2, "strength": 3.0}, {"id": "Brum, Mauro", "name": "Brum, Mauro", "degree": 1, "strength": 6.0}, {"id": "Bucksch, Alexander", "name": "Bucksch, Alexander", "degree": 2, "strength": 2.0}, {"id": "Monson, Russell K", "name": "Monson, Russell K", "degree": 2, "strength": 2.0}, {"id": "Richman, Sarah K", "name": "Richman, Sarah K", "degree": 1, "strength": 7.0}, {"id": "Smith, Gordon P", "name": "Smith, Gordon P", "degree": 1, "strength": 4.0}, {"id": "Jenks, Matthew A", "name": "Jenks, Matthew A", "degree": 1, "strength": 2.0}], "links": [{"source": "Gunatilaka, A A Leslie", "target": "URen, Jana M", "weight": 6.0}, {"source": "Gunatilaka, A A Leslie", "target": "Arnold, A Elizabeth", "weight": 12.0}, {"source": "URen, Jana M", "target": "Arnold, A Elizabeth", "weight": 20.0}, {"source": "Mosher, Rebecca A", "target": "Palanivelu, Ravishankar", "weight": 2.0}, {"source": "Mosher, Rebecca A", "target": "Lyons, Eric", "weight": 1.0}, {"source": "Mosher, Rebecca A", "target": "Beilstein, Mark A", "weight": 5.0}, {"source": "Palanivelu, Ravishankar", "target": "Yadegari, Ramin", "weight": 1.0}, {"source": "Palanivelu, Ravishankar", "target": "Nelson, Andrew D L", "weight": 1.0}, {"source": "Palanivelu, Ravishankar", "target": "Beilstein, Mark A", "weight": 1.0}, {"source": "Woodson, Jesse D", "target": "Nelson, Andrew D L", "weight": 1.0}, {"source": "Woodson, Jesse D", "target": "Beilstein, Mark A", "weight": 1.0}, {"source": "Yadegari, Ramin", "target": "Schumaker, Karen S", "weight": 2.0}, {"source": "Barker, Michael S", "target": "Pelosi, Jessie A", "weight": 2.0}, {"source": "Barker, Michael S", "target": "Dlugosch, Katrina M", "weight": 4.0}, {"source": "Barker, Michael S", "target": "Bronstein, Judith L", "weight": 1.0}, {"source": "Barker, Michael S", "target": "Lyons, Eric", "weight": 1.0}, {"source": "Pelosi, Jessie A", "target": "Dlugosch, Katrina M", "weight": 5.0}, {"source": "Dlugosch, Katrina M", "target": "Baltrus, David A", "weight": 2.0}, {"source": "Dlugosch, Katrina M", "target": "Saleska, Scott R", "weight": 2.0}, {"source": "Bronstein, Judith L", "target": "Arnold, A Elizabeth", "weight": 1.0}, {"source": "Bronstein, Judith L", "target": "Richman, Sarah K", "weight": 7.0}, {"source": "Bronstein, Judith L", "target": "Smith, Gordon P", "weight": 4.0}, {"source": "Lyons, Eric", "target": "Pauli, Duke", "weight": 7.0}, {"source": "Lyons, Eric", "target": "Arnold, A Elizabeth", "weight": 1.0}, {"source": "Lyons, Eric", "target": "Nelson, Andrew D L", "weight": 16.0}, {"source": "Lyons, Eric", "target": "Beilstein, Mark A", "weight": 7.0}, {"source": "Lyons, Eric", "target": "Bucksch, Alexander", "weight": 1.0}, {"source": "Pauli, Duke", "target": "Arnold, A Elizabeth", "weight": 6.0}, {"source": "Pauli, Duke", "target": "Nelson, Andrew D L", "weight": 4.0}, {"source": "Pauli, Duke", "target": "Frost, Christopher J", "weight": 1.0}, {"source": "Pauli, Duke", "target": "Jenks, Matthew A", "weight": 2.0}, {"source": "Tax, Frans E", "target": "Frost, Christopher J", "weight": 1.0}, {"source": "Arnold, A Elizabeth", "target": "Baltrus, David A", "weight": 12.0}, {"source": "Arnold, A Elizabeth", "target": "Nelson, Andrew D L", "weight": 2.0}, {"source": "Arnold, A Elizabeth", "target": "OrtegaBeltran, Alejandro", "weight": 1.0}, {"source": "Nelson, Andrew D L", "target": "OrtegaBeltran, Alejandro", "weight": 1.0}, {"source": "Nelson, Andrew D L", "target": "Beilstein, Mark A", "weight": 8.0}, {"source": "Nelson, Andrew D L", "target": "Bucksch, Alexander", "weight": 1.0}, {"source": "Saleska, Scott R", "target": "Wu, Jin", "weight": 20.0}, {"source": "Saleska, Scott R", "target": "Smith, Marielle N", "weight": 11.0}, {"source": "Saleska, Scott R", "target": "Brum, Mauro", "weight": 6.0}, {"source": "Saleska, Scott R", "target": "Monson, Russell K", "weight": 1.0}, {"source": "Wu, Jin", "target": "Smith, Marielle N", "weight": 4.0}, {"source": "Wu, Jin", "target": "Monson, Russell K", "weight": 1.0}, {"source": "Beilstein, Mark A", "target": "Schumaker, Karen S", "weight": 1.0}]};
+
+console.log("First edge:", graphData.links[0]);
+console.log("Nodes:", graphData.nodes.length);
+console.log("Edges:", graphData.links.length);
+
+const Graph = ForceGraph3D()(
+    document.getElementById("graph")
+);
+
+Graph
+    .nodeId("id")
+    .linkSource("source")
+    .linkTarget("target")
+    .graphData(graphData)
+    .backgroundColor("#FFFFFF")
+    .showNavInfo(false)
+
+    // Node appearance
+    .nodeColor(() => "#073763")
+    .nodeVal(node =>
+        1.5 + Math.sqrt(node.strength + 1) * 0.45
+    )
+
+    // Edge appearance
+    .linkColor(() => "#648FC9")
+    .linkOpacity(0.7)
+    .linkWidth(link =>
+        0.5 + Math.sqrt(Number(link.weight) || 1) * 0.35
+    );
+
+</script>
+
+</body>
+</html>
+

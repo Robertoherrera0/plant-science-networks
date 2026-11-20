@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+
+<title>WestVirginia_adjacency</title>
+
+<style>
+
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #FFFFFF;
+}
+
+graph {
+    width: 100%;
+    height: 100%;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="graph"></div>
+
+
+<!-- 3D force graph -->
+<script src="https://cdn.jsdelivr.net/npm/3d-force-graph"></script>
+
+<script type="module">
+
+import ForceGraph3D
+    from "https://cdn.jsdelivr.net/npm/3d-force-graph/+esm";
+
+const graphData = {"nodes": [{"id": "Barrett, Craig F", "name": "Barrett, Craig F", "degree": 1, "strength": 1.0}, {"id": "DiFazio, Stephen P", "name": "DiFazio, Stephen P", "degree": 2, "strength": 2.0}, {"id": "Benedito, Vagner Augusto", "name": "Benedito, Vagner Augusto", "degree": 1, "strength": 1.0}, {"id": "Ku, KangMo", "name": "Ku, KangMo", "degree": 2, "strength": 2.0}, {"id": "Gutensohn, Michael", "name": "Gutensohn, Michael", "degree": 1, "strength": 6.0}, {"id": "Park, YongLak", "name": "Park, YongLak", "degree": 4, "strength": 9.0}, {"id": "Waterland, Nicole L", "name": "Waterland, Nicole L", "degree": 1, "strength": 1.0}], "links": [{"source": "Barrett, Craig F", "target": "DiFazio, Stephen P", "weight": 1.0}, {"source": "DiFazio, Stephen P", "target": "Park, YongLak", "weight": 1.0}, {"source": "Benedito, Vagner Augusto", "target": "Ku, KangMo", "weight": 1.0}, {"source": "Ku, KangMo", "target": "Park, YongLak", "weight": 1.0}, {"source": "Gutensohn, Michael", "target": "Park, YongLak", "weight": 6.0}, {"source": "Park, YongLak", "target": "Waterland, Nicole L", "weight": 1.0}]};
+
+console.log("First edge:", graphData.links[0]);
+console.log("Nodes:", graphData.nodes.length);
+console.log("Edges:", graphData.links.length);
+
+const Graph = ForceGraph3D()(
+    document.getElementById("graph")
+);
+
+Graph
+    .nodeId("id")
+    .linkSource("source")
+    .linkTarget("target")
+    .graphData(graphData)
+    .backgroundColor("#FFFFFF")
+    .showNavInfo(false)
+
+    // Node appearance
+    .nodeColor(() => "#073763")
+    .nodeVal(node =>
+        1.5 + Math.sqrt(node.strength + 1) * 0.45
+    )
+
+    // Edge appearance
+    .linkColor(() => "#648FC9")
+    .linkOpacity(0.7)
+    .linkWidth(link =>
+        0.5 + Math.sqrt(Number(link.weight) || 1) * 0.35
+    );
+
+</script>
+
+</body>
+</html>
+

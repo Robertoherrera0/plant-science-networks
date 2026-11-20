@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+
+<title>Nevada_adjacency</title>
+
+<style>
+
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #FFFFFF;
+}
+
+graph {
+    width: 100%;
+    height: 100%;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="graph"></div>
+
+
+<!-- 3D force graph -->
+<script src="https://cdn.jsdelivr.net/npm/3d-force-graph"></script>
+
+<script type="module">
+
+import ForceGraph3D
+    from "https://cdn.jsdelivr.net/npm/3d-force-graph/+esm";
+
+const graphData = {"nodes": [{"id": "Cushman, John C", "name": "Cushman, John C", "degree": 4, "strength": 31.0}, {"id": "Yim, Won Cheol", "name": "Yim, Won Cheol", "degree": 4, "strength": 31.0}, {"id": "Harper, Jeffrey F", "name": "Harper, Jeffrey F", "degree": 5, "strength": 13.0}, {"id": "Kosma, Dylan K", "name": "Kosma, Dylan K", "degree": 4, "strength": 11.0}, {"id": "Wallace, Ian S", "name": "Wallace, Ian S", "degree": 5, "strength": 15.0}, {"id": "BarriosMasias, Felipe H", "name": "BarriosMasias, Felipe H", "degree": 2, "strength": 4.0}, {"id": "Cramer, Grant R", "name": "Cramer, Grant R", "degree": 1, "strength": 2.0}, {"id": "Choi, WonGyu", "name": "Choi, WonGyu", "degree": 4, "strength": 9.0}, {"id": "Dyer, Lee A", "name": "Dyer, Lee A", "degree": 3, "strength": 31.0}, {"id": "Richards, Lora A", "name": "Richards, Lora A", "degree": 3, "strength": 31.0}, {"id": "Harrison, Joshua G", "name": "Harrison, Joshua G", "degree": 3, "strength": 6.0}], "links": [{"source": "Cushman, John C", "target": "Yim, Won Cheol", "weight": 24.0}, {"source": "Cushman, John C", "target": "Harper, Jeffrey F", "weight": 2.0}, {"source": "Cushman, John C", "target": "Kosma, Dylan K", "weight": 3.0}, {"source": "Cushman, John C", "target": "Choi, WonGyu", "weight": 2.0}, {"source": "Yim, Won Cheol", "target": "Harper, Jeffrey F", "weight": 1.0}, {"source": "Yim, Won Cheol", "target": "Kosma, Dylan K", "weight": 5.0}, {"source": "Yim, Won Cheol", "target": "Choi, WonGyu", "weight": 1.0}, {"source": "Harper, Jeffrey F", "target": "Kosma, Dylan K", "weight": 1.0}, {"source": "Harper, Jeffrey F", "target": "Wallace, Ian S", "weight": 4.0}, {"source": "Harper, Jeffrey F", "target": "Choi, WonGyu", "weight": 5.0}, {"source": "Kosma, Dylan K", "target": "BarriosMasias, Felipe H", "weight": 2.0}, {"source": "Wallace, Ian S", "target": "Choi, WonGyu", "weight": 1.0}, {"source": "Wallace, Ian S", "target": "Dyer, Lee A", "weight": 4.0}, {"source": "Wallace, Ian S", "target": "Richards, Lora A", "weight": 4.0}, {"source": "Wallace, Ian S", "target": "Harrison, Joshua G", "weight": 2.0}, {"source": "BarriosMasias, Felipe H", "target": "Cramer, Grant R", "weight": 2.0}, {"source": "Dyer, Lee A", "target": "Richards, Lora A", "weight": 25.0}, {"source": "Dyer, Lee A", "target": "Harrison, Joshua G", "weight": 2.0}, {"source": "Richards, Lora A", "target": "Harrison, Joshua G", "weight": 2.0}]};
+
+console.log("First edge:", graphData.links[0]);
+console.log("Nodes:", graphData.nodes.length);
+console.log("Edges:", graphData.links.length);
+
+const Graph = ForceGraph3D()(
+    document.getElementById("graph")
+);
+
+Graph
+    .nodeId("id")
+    .linkSource("source")
+    .linkTarget("target")
+    .graphData(graphData)
+    .backgroundColor("#FFFFFF")
+    .showNavInfo(false)
+
+    // Node appearance
+    .nodeColor(() => "#073763")
+    .nodeVal(node =>
+        1.5 + Math.sqrt(node.strength + 1) * 0.45
+    )
+
+    // Edge appearance
+    .linkColor(() => "#648FC9")
+    .linkOpacity(0.7)
+    .linkWidth(link =>
+        0.5 + Math.sqrt(Number(link.weight) || 1) * 0.35
+    );
+
+</script>
+
+</body>
+</html>
+

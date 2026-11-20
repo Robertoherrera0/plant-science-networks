@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+
+<title>Maine_adjacency</title>
+
+<style>
+
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #FFFFFF;
+}
+
+graph {
+    width: 100%;
+    height: 100%;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="graph"></div>
+
+
+<!-- 3D force graph -->
+<script src="https://cdn.jsdelivr.net/npm/3d-force-graph"></script>
+
+<script type="module">
+
+import ForceGraph3D
+    from "https://cdn.jsdelivr.net/npm/3d-force-graph/+esm";
+
+const graphData = {"nodes": [{"id": "Zhang, YongJiang", "name": "Zhang, YongJiang", "degree": 5, "strength": 17.0}, {"id": "Hao, Jianjun J", "name": "Hao, Jianjun J", "degree": 1, "strength": 1.0}, {"id": "Dibble, Alison C", "name": "Dibble, Alison C", "degree": 1, "strength": 5.0}, {"id": "Drummond, Francis A", "name": "Drummond, Francis A", "degree": 3, "strength": 10.0}, {"id": "Tasnim, Rafa", "name": "Tasnim, Rafa", "degree": 2, "strength": 9.0}, {"id": "MacKenzie, Caitlin McDonough", "name": "MacKenzie, Caitlin McDonough", "degree": 2, "strength": 2.0}, {"id": "Wason, Jay W", "name": "Wason, Jay W", "degree": 2, "strength": 4.0}, {"id": "Meireles, Jose Eduardo", "name": "Meireles, Jose Eduardo", "degree": 2, "strength": 2.0}], "links": [{"source": "Zhang, YongJiang", "target": "Hao, Jianjun J", "weight": 1.0}, {"source": "Zhang, YongJiang", "target": "Drummond, Francis A", "weight": 4.0}, {"source": "Zhang, YongJiang", "target": "Tasnim, Rafa", "weight": 8.0}, {"source": "Zhang, YongJiang", "target": "Wason, Jay W", "weight": 3.0}, {"source": "Zhang, YongJiang", "target": "Meireles, Jose Eduardo", "weight": 1.0}, {"source": "Dibble, Alison C", "target": "Drummond, Francis A", "weight": 5.0}, {"source": "Drummond, Francis A", "target": "Tasnim, Rafa", "weight": 1.0}, {"source": "MacKenzie, Caitlin McDonough", "target": "Wason, Jay W", "weight": 1.0}, {"source": "MacKenzie, Caitlin McDonough", "target": "Meireles, Jose Eduardo", "weight": 1.0}]};
+
+console.log("First edge:", graphData.links[0]);
+console.log("Nodes:", graphData.nodes.length);
+console.log("Edges:", graphData.links.length);
+
+const Graph = ForceGraph3D()(
+    document.getElementById("graph")
+);
+
+Graph
+    .nodeId("id")
+    .linkSource("source")
+    .linkTarget("target")
+    .graphData(graphData)
+    .backgroundColor("#FFFFFF")
+    .showNavInfo(false)
+
+    // Node appearance
+    .nodeColor(() => "#073763")
+    .nodeVal(node =>
+        1.5 + Math.sqrt(node.strength + 1) * 0.45
+    )
+
+    // Edge appearance
+    .linkColor(() => "#648FC9")
+    .linkOpacity(0.7)
+    .linkWidth(link =>
+        0.5 + Math.sqrt(Number(link.weight) || 1) * 0.35
+    );
+
+</script>
+
+</body>
+</html>
+

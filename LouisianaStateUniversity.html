@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+
+<title>LouisianaState_adjacency</title>
+
+<style>
+
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #FFFFFF;
+}
+
+graph {
+    width: 100%;
+    height: 100%;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="graph"></div>
+
+
+<!-- 3D force graph -->
+<script src="https://cdn.jsdelivr.net/npm/3d-force-graph"></script>
+
+<script type="module">
+
+import ForceGraph3D
+    from "https://cdn.jsdelivr.net/npm/3d-force-graph/+esm";
+
+const graphData = {"nodes": [{"id": "Moroney, James V", "name": "Moroney, James V", "degree": 2, "strength": 6.0}, {"id": "Vinyard, David J", "name": "Vinyard, David J", "degree": 3, "strength": 6.0}, {"id": "Bricker, Terry M", "name": "Bricker, Terry M", "degree": 1, "strength": 1.0}, {"id": "Dassanayake, Maheshi", "name": "Dassanayake, Maheshi", "degree": 7, "strength": 23.0}, {"id": "Smith, Aaron P", "name": "Smith, Aaron P", "degree": 4, "strength": 12.0}, {"id": "Larkin, John C", "name": "Larkin, John C", "degree": 3, "strength": 13.0}, {"id": "SantiagoRosario, Luis Y", "name": "SantiagoRosario, Luis Y", "degree": 1, "strength": 1.0}, {"id": "Kato, Naohiro", "name": "Kato, Naohiro", "degree": 3, "strength": 6.0}, {"id": "Wilson, Blake E", "name": "Wilson, Blake E", "degree": 4, "strength": 8.0}, {"id": "Baisakh, Niranjan", "name": "Baisakh, Niranjan", "degree": 7, "strength": 21.0}, {"id": "Kimbeng, Collins A", "name": "Kimbeng, Collins A", "degree": 4, "strength": 17.0}, {"id": "Pontif, Michael", "name": "Pontif, Michael", "degree": 3, "strength": 14.0}, {"id": "Famoso, Adam N", "name": "Famoso, Adam N", "degree": 7, "strength": 12.0}, {"id": "Villordon, Arthur Q", "name": "Villordon, Arthur Q", "degree": 2, "strength": 2.0}, {"id": "FritscheNeto, Roberto", "name": "FritscheNeto, Roberto", "degree": 3, "strength": 12.0}, {"id": "Webster, Eric P", "name": "Webster, Eric P", "degree": 2, "strength": 4.0}, {"id": "Ham, Jong Hyun", "name": "Ham, Jong Hyun", "degree": 2, "strength": 3.0}, {"id": "Oard, James H", "name": "Oard, James H", "degree": 3, "strength": 5.0}, {"id": "Tubana, Brenda S", "name": "Tubana, Brenda S", "degree": 1, "strength": 1.0}, {"id": "Crossa, Jose", "name": "Crossa, Jose", "degree": 2, "strength": 9.0}], "links": [{"source": "Moroney, James V", "target": "Vinyard, David J", "weight": 3.0}, {"source": "Moroney, James V", "target": "Dassanayake, Maheshi", "weight": 3.0}, {"source": "Vinyard, David J", "target": "Bricker, Terry M", "weight": 1.0}, {"source": "Vinyard, David J", "target": "Dassanayake, Maheshi", "weight": 2.0}, {"source": "Dassanayake, Maheshi", "target": "Smith, Aaron P", "weight": 7.0}, {"source": "Dassanayake, Maheshi", "target": "Larkin, John C", "weight": 7.0}, {"source": "Dassanayake, Maheshi", "target": "SantiagoRosario, Luis Y", "weight": 1.0}, {"source": "Dassanayake, Maheshi", "target": "Kato, Naohiro", "weight": 1.0}, {"source": "Dassanayake, Maheshi", "target": "Baisakh, Niranjan", "weight": 2.0}, {"source": "Smith, Aaron P", "target": "Larkin, John C", "weight": 2.0}, {"source": "Smith, Aaron P", "target": "Kato, Naohiro", "weight": 1.0}, {"source": "Smith, Aaron P", "target": "Baisakh, Niranjan", "weight": 2.0}, {"source": "Larkin, John C", "target": "Kato, Naohiro", "weight": 4.0}, {"source": "Wilson, Blake E", "target": "Baisakh, Niranjan", "weight": 2.0}, {"source": "Wilson, Blake E", "target": "Kimbeng, Collins A", "weight": 2.0}, {"source": "Wilson, Blake E", "target": "Pontif, Michael", "weight": 3.0}, {"source": "Wilson, Blake E", "target": "Famoso, Adam N", "weight": 1.0}, {"source": "Baisakh, Niranjan", "target": "Kimbeng, Collins A", "weight": 8.0}, {"source": "Baisakh, Niranjan", "target": "Pontif, Michael", "weight": 5.0}, {"source": "Baisakh, Niranjan", "target": "Famoso, Adam N", "weight": 1.0}, {"source": "Baisakh, Niranjan", "target": "Villordon, Arthur Q", "weight": 1.0}, {"source": "Kimbeng, Collins A", "target": "Pontif, Michael", "weight": 6.0}, {"source": "Kimbeng, Collins A", "target": "FritscheNeto, Roberto", "weight": 1.0}, {"source": "Famoso, Adam N", "target": "FritscheNeto, Roberto", "weight": 3.0}, {"source": "Famoso, Adam N", "target": "Webster, Eric P", "weight": 2.0}, {"source": "Famoso, Adam N", "target": "Ham, Jong Hyun", "weight": 2.0}, {"source": "Famoso, Adam N", "target": "Oard, James H", "weight": 2.0}, {"source": "Famoso, Adam N", "target": "Crossa, Jose", "weight": 1.0}, {"source": "Villordon, Arthur Q", "target": "Tubana, Brenda S", "weight": 1.0}, {"source": "FritscheNeto, Roberto", "target": "Crossa, Jose", "weight": 8.0}, {"source": "Webster, Eric P", "target": "Oard, James H", "weight": 2.0}, {"source": "Ham, Jong Hyun", "target": "Oard, James H", "weight": 1.0}]};
+
+console.log("First edge:", graphData.links[0]);
+console.log("Nodes:", graphData.nodes.length);
+console.log("Edges:", graphData.links.length);
+
+const Graph = ForceGraph3D()(
+    document.getElementById("graph")
+);
+
+Graph
+    .nodeId("id")
+    .linkSource("source")
+    .linkTarget("target")
+    .graphData(graphData)
+    .backgroundColor("#FFFFFF")
+    .showNavInfo(false)
+
+    // Node appearance
+    .nodeColor(() => "#073763")
+    .nodeVal(node =>
+        1.5 + Math.sqrt(node.strength + 1) * 0.45
+    )
+
+    // Edge appearance
+    .linkColor(() => "#648FC9")
+    .linkOpacity(0.7)
+    .linkWidth(link =>
+        0.5 + Math.sqrt(Number(link.weight) || 1) * 0.35
+    );
+
+</script>
+
+</body>
+</html>
+

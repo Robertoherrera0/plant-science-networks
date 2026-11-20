@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+
+<title>Kentucky_adjacency</title>
+
+<style>
+
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #FFFFFF;
+}
+
+graph {
+    width: 100%;
+    height: 100%;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="graph"></div>
+
+
+<!-- 3D force graph -->
+<script src="https://cdn.jsdelivr.net/npm/3d-force-graph"></script>
+
+<script type="module">
+
+import ForceGraph3D
+    from "https://cdn.jsdelivr.net/npm/3d-force-graph/+esm";
+
+const graphData = {"nodes": [{"id": "Yuan, Ling", "name": "Yuan, Ling", "degree": 6, "strength": 75.0}, {"id": "Zhou, Xuguo", "name": "Zhou, Xuguo", "degree": 4, "strength": 35.0}, {"id": "Baskin, Carol C", "name": "Baskin, Carol C", "degree": 1, "strength": 1.0}, {"id": "Geneve, Robert L", "name": "Geneve, Robert L", "degree": 6, "strength": 6.0}, {"id": "Kawashima, Tomokazu", "name": "Kawashima, Tomokazu", "degree": 7, "strength": 11.0}, {"id": "Perry, Sharyn E", "name": "Perry, Sharyn E", "degree": 5, "strength": 6.0}, {"id": "Ohnishi, Yukinosuke", "name": "Ohnishi, Yukinosuke", "degree": 1, "strength": 2.0}, {"id": "Salmeron, Montserrat", "name": "Salmeron, Montserrat", "degree": 3, "strength": 6.0}, {"id": "Rieske, Lynne K", "name": "Rieske, Lynne K", "degree": 1, "strength": 1.0}, {"id": "Pattanaik, Sitakanta", "name": "Pattanaik, Sitakanta", "degree": 4, "strength": 54.0}, {"id": "Wang, Hongxia", "name": "Wang, Hongxia", "degree": 3, "strength": 17.0}, {"id": "Van Sanford, David Anthony", "name": "Van Sanford, David Anthony", "degree": 5, "strength": 12.0}, {"id": "Kachroo, Pradeep", "name": "Kachroo, Pradeep", "degree": 4, "strength": 36.0}, {"id": "Dinkins, Randy D", "name": "Dinkins, Randy D", "degree": 7, "strength": 18.0}, {"id": "Yang, Shengming", "name": "Yang, Shengming", "degree": 2, "strength": 9.0}, {"id": "Zhu, Hongyan", "name": "Zhu, Hongyan", "degree": 2, "strength": 13.0}, {"id": "McGrail, Rebecca K", "name": "McGrail, Rebecca K", "degree": 3, "strength": 9.0}, {"id": "Hunt, Arthur G", "name": "Hunt, Arthur G", "degree": 7, "strength": 16.0}, {"id": "Slaughter, Lindsey C", "name": "Slaughter, Lindsey C", "degree": 1, "strength": 2.0}, {"id": "Downie, Allan Bruce", "name": "Downie, Allan Bruce", "degree": 6, "strength": 8.0}, {"id": "Kachroo, Aardra", "name": "Kachroo, Aardra", "degree": 2, "strength": 30.0}, {"id": "DeBolt, Seth", "name": "DeBolt, Seth", "degree": 6, "strength": 8.0}, {"id": "Saleem, Muhammad", "name": "Saleem, Muhammad", "degree": 2, "strength": 2.0}, {"id": "Hildebrand, David", "name": "Hildebrand, David", "degree": 6, "strength": 9.0}, {"id": "Bradley, Carl A", "name": "Bradley, Carl A", "degree": 1, "strength": 3.0}, {"id": "Schendel, Rachel R", "name": "Schendel, Rachel R", "degree": 1, "strength": 1.0}, {"id": "Lopez, Carlos Marcelino Rodriguez", "name": "Lopez, Carlos Marcelino Rodriguez", "degree": 3, "strength": 3.0}, {"id": "McNear, David H", "name": "McNear, David H", "degree": 4, "strength": 12.0}, {"id": "Unrine, Jason M", "name": "Unrine, Jason M", "degree": 3, "strength": 5.0}, {"id": "Moe, Luke A", "name": "Moe, Luke A", "degree": 3, "strength": 3.0}, {"id": "Haramoto, Erin R", "name": "Haramoto, Erin R", "degree": 2, "strength": 4.0}, {"id": "Archbold, Douglas D", "name": "Archbold, Douglas D", "degree": 1, "strength": 1.0}, {"id": "Brzozowski, Lauren J", "name": "Brzozowski, Lauren J", "degree": 1, "strength": 2.0}, {"id": "Abbott, Albert G", "name": "Abbott, Albert G", "degree": 1, "strength": 3.0}, {"id": "Barrett, Michael", "name": "Barrett, Michael", "degree": 2, "strength": 3.0}, {"id": "Liu, Yongliang", "name": "Liu, Yongliang", "degree": 4, "strength": 36.0}, {"id": "Pan, Huipeng", "name": "Pan, Huipeng", "degree": 2, "strength": 26.0}], "links": [{"source": "Yuan, Ling", "target": "Zhou, Xuguo", "weight": 6.0}, {"source": "Yuan, Ling", "target": "Kawashima, Tomokazu", "weight": 3.0}, {"source": "Yuan, Ling", "target": "Pattanaik, Sitakanta", "weight": 35.0}, {"source": "Yuan, Ling", "target": "Wang, Hongxia", "weight": 13.0}, {"source": "Yuan, Ling", "target": "Liu, Yongliang", "weight": 17.0}, {"source": "Yuan, Ling", "target": "Pan, Huipeng", "weight": 1.0}, {"source": "Zhou, Xuguo", "target": "Pattanaik, Sitakanta", "weight": 2.0}, {"source": "Zhou, Xuguo", "target": "Liu, Yongliang", "weight": 2.0}, {"source": "Zhou, Xuguo", "target": "Pan, Huipeng", "weight": 25.0}, {"source": "Baskin, Carol C", "target": "Geneve, Robert L", "weight": 1.0}, {"source": "Geneve, Robert L", "target": "Perry, Sharyn E", "weight": 1.0}, {"source": "Geneve, Robert L", "target": "Kachroo, Pradeep", "weight": 1.0}, {"source": "Geneve, Robert L", "target": "Hildebrand, David", "weight": 1.0}, {"source": "Geneve, Robert L", "target": "Lopez, Carlos Marcelino Rodriguez", "weight": 1.0}, {"source": "Geneve, Robert L", "target": "Archbold, Douglas D", "weight": 1.0}, {"source": "Kawashima, Tomokazu", "target": "Perry, Sharyn E", "weight": 1.0}, {"source": "Kawashima, Tomokazu", "target": "Ohnishi, Yukinosuke", "weight": 2.0}, {"source": "Kawashima, Tomokazu", "target": "Salmeron, Montserrat", "weight": 2.0}, {"source": "Kawashima, Tomokazu", "target": "Rieske, Lynne K", "weight": 1.0}, {"source": "Kawashima, Tomokazu", "target": "Hunt, Arthur G", "weight": 1.0}, {"source": "Kawashima, Tomokazu", "target": "Downie, Allan Bruce", "weight": 1.0}, {"source": "Perry, Sharyn E", "target": "Hunt, Arthur G", "weight": 1.0}, {"source": "Perry, Sharyn E", "target": "Downie, Allan Bruce", "weight": 2.0}, {"source": "Perry, Sharyn E", "target": "Lopez, Carlos Marcelino Rodriguez", "weight": 1.0}, {"source": "Salmeron, Montserrat", "target": "Hildebrand, David", "weight": 1.0}, {"source": "Salmeron, Montserrat", "target": "Haramoto, Erin R", "weight": 3.0}, {"source": "Pattanaik, Sitakanta", "target": "Wang, Hongxia", "weight": 2.0}, {"source": "Pattanaik, Sitakanta", "target": "Liu, Yongliang", "weight": 15.0}, {"source": "Wang, Hongxia", "target": "Liu, Yongliang", "weight": 2.0}, {"source": "Van Sanford, David Anthony", "target": "McGrail, Rebecca K", "weight": 3.0}, {"source": "Van Sanford, David Anthony", "target": "DeBolt, Seth", "weight": 1.0}, {"source": "Van Sanford, David Anthony", "target": "Bradley, Carl A", "weight": 3.0}, {"source": "Van Sanford, David Anthony", "target": "McNear, David H", "weight": 3.0}, {"source": "Van Sanford, David Anthony", "target": "Brzozowski, Lauren J", "weight": 2.0}, {"source": "Kachroo, Pradeep", "target": "Hunt, Arthur G", "weight": 4.0}, {"source": "Kachroo, Pradeep", "target": "Kachroo, Aardra", "weight": 27.0}, {"source": "Kachroo, Pradeep", "target": "Hildebrand, David", "weight": 4.0}, {"source": "Dinkins, Randy D", "target": "Yang, Shengming", "weight": 2.0}, {"source": "Dinkins, Randy D", "target": "Zhu, Hongyan", "weight": 6.0}, {"source": "Dinkins, Randy D", "target": "McGrail, Rebecca K", "weight": 1.0}, {"source": "Dinkins, Randy D", "target": "Hunt, Arthur G", "weight": 4.0}, {"source": "Dinkins, Randy D", "target": "Slaughter, Lindsey C", "weight": 2.0}, {"source": "Dinkins, Randy D", "target": "Downie, Allan Bruce", "weight": 1.0}, {"source": "Dinkins, Randy D", "target": "Barrett, Michael", "weight": 2.0}, {"source": "Yang, Shengming", "target": "Zhu, Hongyan", "weight": 7.0}, {"source": "McGrail, Rebecca K", "target": "McNear, David H", "weight": 5.0}, {"source": "Hunt, Arthur G", "target": "Downie, Allan Bruce", "weight": 2.0}, {"source": "Hunt, Arthur G", "target": "Kachroo, Aardra", "weight": 3.0}, {"source": "Hunt, Arthur G", "target": "DeBolt, Seth", "weight": 1.0}, {"source": "Downie, Allan Bruce", "target": "Schendel, Rachel R", "weight": 1.0}, {"source": "Downie, Allan Bruce", "target": "Lopez, Carlos Marcelino Rodriguez", "weight": 1.0}, {"source": "DeBolt, Seth", "target": "Saleem, Muhammad", "weight": 1.0}, {"source": "DeBolt, Seth", "target": "Hildebrand, David", "weight": 1.0}, {"source": "DeBolt, Seth", "target": "Abbott, Albert G", "weight": 3.0}, {"source": "DeBolt, Seth", "target": "Barrett, Michael", "weight": 1.0}, {"source": "Saleem, Muhammad", "target": "Moe, Luke A", "weight": 1.0}, {"source": "Hildebrand, David", "target": "Unrine, Jason M", "weight": 1.0}, {"source": "Hildebrand, David", "target": "Haramoto, Erin R", "weight": 1.0}, {"source": "McNear, David H", "target": "Unrine, Jason M", "weight": 3.0}, {"source": "McNear, David H", "target": "Moe, Luke A", "weight": 1.0}, {"source": "Unrine, Jason M", "target": "Moe, Luke A", "weight": 1.0}]};
+
+console.log("First edge:", graphData.links[0]);
+console.log("Nodes:", graphData.nodes.length);
+console.log("Edges:", graphData.links.length);
+
+const Graph = ForceGraph3D()(
+    document.getElementById("graph")
+);
+
+Graph
+    .nodeId("id")
+    .linkSource("source")
+    .linkTarget("target")
+    .graphData(graphData)
+    .backgroundColor("#FFFFFF")
+    .showNavInfo(false)
+
+    // Node appearance
+    .nodeColor(() => "#073763")
+    .nodeVal(node =>
+        1.5 + Math.sqrt(node.strength + 1) * 0.45
+    )
+
+    // Edge appearance
+    .linkColor(() => "#648FC9")
+    .linkOpacity(0.7)
+    .linkWidth(link =>
+        0.5 + Math.sqrt(Number(link.weight) || 1) * 0.35
+    );
+
+</script>
+
+</body>
+</html>
+

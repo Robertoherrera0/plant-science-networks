@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+
+<title>Vermont_adjacency</title>
+
+<style>
+
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #FFFFFF;
+}
+
+graph {
+    width: 100%;
+    height: 100%;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="graph"></div>
+
+
+<!-- 3D force graph -->
+<script src="https://cdn.jsdelivr.net/npm/3d-force-graph"></script>
+
+<script type="module">
+
+import ForceGraph3D
+    from "https://cdn.jsdelivr.net/npm/3d-force-graph/+esm";
+
+const graphData = {"nodes": [{"id": "Barrington, David S", "name": "Barrington, David S", "degree": 3, "strength": 8.0}, {"id": "Sundue, Michael A", "name": "Sundue, Michael A", "degree": 2, "strength": 11.0}, {"id": "Tierney, Mary L", "name": "Tierney, Mary L", "degree": 2, "strength": 2.0}, {"id": "Preston, Jill C", "name": "Preston, Jill C", "degree": 1, "strength": 1.0}, {"id": "Testo, Weston", "name": "Testo, Weston", "degree": 2, "strength": 12.0}], "links": [{"source": "Barrington, David S", "target": "Tierney, Mary L", "weight": 1.0}, {"source": "Barrington, David S", "target": "Sundue, Michael A", "weight": 3.0}, {"source": "Barrington, David S", "target": "Testo, Weston", "weight": 4.0}, {"source": "Sundue, Michael A", "target": "Testo, Weston", "weight": 8.0}, {"source": "Tierney, Mary L", "target": "Preston, Jill C", "weight": 1.0}]};
+
+console.log("First edge:", graphData.links[0]);
+console.log("Nodes:", graphData.nodes.length);
+console.log("Edges:", graphData.links.length);
+
+const Graph = ForceGraph3D()(
+    document.getElementById("graph")
+);
+
+Graph
+    .nodeId("id")
+    .linkSource("source")
+    .linkTarget("target")
+    .graphData(graphData)
+    .backgroundColor("#FFFFFF")
+    .showNavInfo(false)
+
+    // Node appearance
+    .nodeColor(() => "#073763")
+    .nodeVal(node =>
+        1.5 + Math.sqrt(node.strength + 1) * 0.45
+    )
+
+    // Edge appearance
+    .linkColor(() => "#648FC9")
+    .linkOpacity(0.7)
+    .linkWidth(link =>
+        0.5 + Math.sqrt(Number(link.weight) || 1) * 0.35
+    );
+
+</script>
+
+</body>
+</html>
+

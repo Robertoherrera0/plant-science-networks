@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+
+<title>Connecticut_adjacency</title>
+
+<style>
+
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #FFFFFF;
+}
+
+graph {
+    width: 100%;
+    height: 100%;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="graph"></div>
+
+
+<!-- 3D force graph -->
+<script src="https://cdn.jsdelivr.net/npm/3d-force-graph"></script>
+
+<script type="module">
+
+import ForceGraph3D
+    from "https://cdn.jsdelivr.net/npm/3d-force-graph/+esm";
+
+const graphData = {"nodes": [{"id": "Guillard, Karl", "name": "Guillard, Karl", "degree": 4, "strength": 10.0}, {"id": "Wegrzyn, Jill L", "name": "Wegrzyn, Jill L", "degree": 6, "strength": 11.0}, {"id": "Kuzovkina, Yulia A", "name": "Kuzovkina, Yulia A", "degree": 1, "strength": 2.0}, {"id": "Li, Yi", "name": "Li, Yi", "degree": 3, "strength": 8.0}, {"id": "Inguagiato, John C", "name": "Inguagiato, John C", "degree": 3, "strength": 7.0}, {"id": "Goffinet, Bernard", "name": "Goffinet, Bernard", "degree": 2, "strength": 10.0}, {"id": "Simon, Antoine", "name": "Simon, Antoine", "degree": 1, "strength": 4.0}, {"id": "Wang, Huanzhong", "name": "Wang, Huanzhong", "degree": 2, "strength": 2.0}, {"id": "Brand, Mark H", "name": "Brand, Mark H", "degree": 2, "strength": 2.0}], "links": [{"source": "Guillard, Karl", "target": "Li, Yi", "weight": 4.0}, {"source": "Guillard, Karl", "target": "Wegrzyn, Jill L", "weight": 1.0}, {"source": "Guillard, Karl", "target": "Inguagiato, John C", "weight": 3.0}, {"source": "Guillard, Karl", "target": "Kuzovkina, Yulia A", "weight": 2.0}, {"source": "Wegrzyn, Jill L", "target": "Li, Yi", "weight": 1.0}, {"source": "Wegrzyn, Jill L", "target": "Wang, Huanzhong", "weight": 1.0}, {"source": "Wegrzyn, Jill L", "target": "Goffinet, Bernard", "weight": 6.0}, {"source": "Wegrzyn, Jill L", "target": "Inguagiato, John C", "weight": 1.0}, {"source": "Wegrzyn, Jill L", "target": "Brand, Mark H", "weight": 1.0}, {"source": "Li, Yi", "target": "Inguagiato, John C", "weight": 3.0}, {"source": "Goffinet, Bernard", "target": "Simon, Antoine", "weight": 4.0}, {"source": "Wang, Huanzhong", "target": "Brand, Mark H", "weight": 1.0}]};
+
+console.log("First edge:", graphData.links[0]);
+console.log("Nodes:", graphData.nodes.length);
+console.log("Edges:", graphData.links.length);
+
+const Graph = ForceGraph3D()(
+    document.getElementById("graph")
+);
+
+Graph
+    .nodeId("id")
+    .linkSource("source")
+    .linkTarget("target")
+    .graphData(graphData)
+    .backgroundColor("#FFFFFF")
+    .showNavInfo(false)
+
+    // Node appearance
+    .nodeColor(() => "#073763")
+    .nodeVal(node =>
+        1.5 + Math.sqrt(node.strength + 1) * 0.45
+    )
+
+    // Edge appearance
+    .linkColor(() => "#648FC9")
+    .linkOpacity(0.7)
+    .linkWidth(link =>
+        0.5 + Math.sqrt(Number(link.weight) || 1) * 0.35
+    );
+
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+
+<title>Idaho_adjacency</title>
+
+<style>
+
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #FFFFFF;
+}
+
+graph {
+    width: 100%;
+    height: 100%;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="graph"></div>
+
+
+<!-- 3D force graph -->
+<script src="https://cdn.jsdelivr.net/npm/3d-force-graph"></script>
+
+<script type="module">
+
+import ForceGraph3D
+    from "https://cdn.jsdelivr.net/npm/3d-force-graph/+esm";
+
+const graphData = {"nodes": [{"id": "Xiao, Fangming", "name": "Xiao, Fangming", "degree": 2, "strength": 26.0}, {"id": "Dandurand, LouiseMarie", "name": "Dandurand, LouiseMarie", "degree": 5, "strength": 34.0}, {"id": "Popova, Inna", "name": "Popova, Inna", "degree": 2, "strength": 6.0}, {"id": "Karasev, Alexander V", "name": "Karasev, Alexander V", "degree": 6, "strength": 39.0}, {"id": "Fu, Daolin", "name": "Fu, Daolin", "degree": 1, "strength": 4.0}, {"id": "Wenninger, Erik J", "name": "Wenninger, Erik J", "degree": 3, "strength": 25.0}, {"id": "Rashed, Arash", "name": "Rashed, Arash", "degree": 4, "strength": 20.0}, {"id": "Sadeghi, Rohollah", "name": "Sadeghi, Rohollah", "degree": 3, "strength": 9.0}, {"id": "Caplan, Allan B", "name": "Caplan, Allan B", "degree": 3, "strength": 30.0}, {"id": "ChikhAli, Mohamad", "name": "ChikhAli, Mohamad", "degree": 2, "strength": 16.0}, {"id": "Ingwell, Laura L", "name": "Ingwell, Laura L", "degree": 1, "strength": 1.0}], "links": [{"source": "Xiao, Fangming", "target": "Dandurand, LouiseMarie", "weight": 13.0}, {"source": "Xiao, Fangming", "target": "Caplan, Allan B", "weight": 13.0}, {"source": "Dandurand, LouiseMarie", "target": "Popova, Inna", "weight": 5.0}, {"source": "Dandurand, LouiseMarie", "target": "Karasev, Alexander V", "weight": 2.0}, {"source": "Dandurand, LouiseMarie", "target": "Caplan, Allan B", "weight": 13.0}, {"source": "Dandurand, LouiseMarie", "target": "ChikhAli, Mohamad", "weight": 1.0}, {"source": "Popova, Inna", "target": "Rashed, Arash", "weight": 1.0}, {"source": "Karasev, Alexander V", "target": "Wenninger, Erik J", "weight": 14.0}, {"source": "Karasev, Alexander V", "target": "Rashed, Arash", "weight": 5.0}, {"source": "Karasev, Alexander V", "target": "Sadeghi, Rohollah", "weight": 2.0}, {"source": "Karasev, Alexander V", "target": "ChikhAli, Mohamad", "weight": 15.0}, {"source": "Karasev, Alexander V", "target": "Ingwell, Laura L", "weight": 1.0}, {"source": "Fu, Daolin", "target": "Caplan, Allan B", "weight": 4.0}, {"source": "Wenninger, Erik J", "target": "Rashed, Arash", "weight": 9.0}, {"source": "Wenninger, Erik J", "target": "Sadeghi, Rohollah", "weight": 2.0}, {"source": "Rashed, Arash", "target": "Sadeghi, Rohollah", "weight": 5.0}]};
+
+console.log("First edge:", graphData.links[0]);
+console.log("Nodes:", graphData.nodes.length);
+console.log("Edges:", graphData.links.length);
+
+const Graph = ForceGraph3D()(
+    document.getElementById("graph")
+);
+
+Graph
+    .nodeId("id")
+    .linkSource("source")
+    .linkTarget("target")
+    .graphData(graphData)
+    .backgroundColor("#FFFFFF")
+    .showNavInfo(false)
+
+    // Node appearance
+    .nodeColor(() => "#073763")
+    .nodeVal(node =>
+        1.5 + Math.sqrt(node.strength + 1) * 0.45
+    )
+
+    // Edge appearance
+    .linkColor(() => "#648FC9")
+    .linkOpacity(0.7)
+    .linkWidth(link =>
+        0.5 + Math.sqrt(Number(link.weight) || 1) * 0.35
+    );
+
+</script>
+
+</body>
+</html>
+

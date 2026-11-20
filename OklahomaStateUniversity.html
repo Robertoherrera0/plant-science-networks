@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+
+<title>OKState_adjacency</title>
+
+<style>
+
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #FFFFFF;
+}
+
+graph {
+    width: 100%;
+    height: 100%;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="graph"></div>
+
+
+<!-- 3D force graph -->
+<script src="https://cdn.jsdelivr.net/npm/3d-force-graph"></script>
+
+<script type="module">
+
+import ForceGraph3D
+    from "https://cdn.jsdelivr.net/npm/3d-force-graph/+esm";
+
+const graphData = {"nodes": [{"id": "Yan, Liuling", "name": "Yan, Liuling", "degree": 7, "strength": 31.0}, {"id": "Dunn, Bruce L", "name": "Dunn, Bruce L", "degree": 5, "strength": 23.0}, {"id": "Raun, William R", "name": "Raun, William R", "degree": 8, "strength": 62.0}, {"id": "Zhang, Lu", "name": "Zhang, Lu", "degree": 5, "strength": 10.0}, {"id": "Singh, Hardeep", "name": "Singh, Hardeep", "degree": 4, "strength": 25.0}, {"id": "Omara, Peter", "name": "Omara, Peter", "degree": 5, "strength": 30.0}, {"id": "Tadege, Million", "name": "Tadege, Million", "degree": 6, "strength": 24.0}, {"id": "Wen, Jiangqi", "name": "Wen, Jiangqi", "degree": 3, "strength": 42.0}, {"id": "Wu, Yanqi Q", "name": "Wu, Yanqi Q", "degree": 7, "strength": 15.0}, {"id": "Yang, Ming", "name": "Yang, Ming", "degree": 1, "strength": 2.0}, {"id": "Doust, Andrew N", "name": "Doust, Andrew N", "degree": 4, "strength": 4.0}, {"id": "Huang, Yinghua", "name": "Huang, Yinghua", "degree": 3, "strength": 4.0}, {"id": "Mysore, Kirankumar S", "name": "Mysore, Kirankumar S", "degree": 4, "strength": 41.0}, {"id": "Allen, Randy D", "name": "Allen, Randy D", "degree": 2, "strength": 6.0}, {"id": "Wang, Ning", "name": "Wang, Ning", "degree": 2, "strength": 2.0}, {"id": "Arnall, Daryl Brian", "name": "Arnall, Daryl Brian", "degree": 9, "strength": 31.0}, {"id": "Carver, Brett F", "name": "Carver, Brett F", "degree": 8, "strength": 41.0}, {"id": "Bushong, Jacob T", "name": "Bushong, Jacob T", "degree": 4, "strength": 15.0}, {"id": "Marburger, David A", "name": "Marburger, David A", "degree": 3, "strength": 5.0}, {"id": "Lofton, Josh", "name": "Lofton, Josh", "degree": 2, "strength": 5.0}, {"id": "Manuchehri, Misha R", "name": "Manuchehri, Misha R", "degree": 3, "strength": 4.0}, {"id": "Feng, Feng", "name": "Feng, Feng", "degree": 3, "strength": 3.0}, {"id": "Xu, Tingying", "name": "Xu, Tingying", "degree": 1, "strength": 3.0}, {"id": "Baath, Gurjinder S", "name": "Baath, Gurjinder S", "degree": 1, "strength": 8.0}, {"id": "Dhillon, Jagmandeep", "name": "Dhillon, Jagmandeep", "degree": 4, "strength": 19.0}, {"id": "Fornah, Alimamy", "name": "Fornah, Alimamy", "degree": 4, "strength": 17.0}, {"id": "Chen, Charles", "name": "Chen, Charles", "degree": 4, "strength": 9.0}, {"id": "Fishbein, Mark", "name": "Fishbein, Mark", "degree": 3, "strength": 6.0}, {"id": "McDonnell, Angela", "name": "McDonnell, Angela", "degree": 1, "strength": 4.0}, {"id": "Amgain, Naba R", "name": "Amgain, Naba R", "degree": 1, "strength": 1.0}, {"id": "Aoun, Meriem", "name": "Aoun, Meriem", "degree": 1, "strength": 4.0}, {"id": "Cobb, Adam B", "name": "Cobb, Adam B", "degree": 2, "strength": 3.0}, {"id": "Duell, Eric B", "name": "Duell, Eric B", "degree": 2, "strength": 3.0}, {"id": "Crose, Jodie A", "name": "Crose, Jodie A", "degree": 1, "strength": 2.0}, {"id": "Deng, Shiping", "name": "Deng, Shiping", "degree": 1, "strength": 2.0}], "links": [{"source": "Yan, Liuling", "target": "Tadege, Million", "weight": 1.0}, {"source": "Yan, Liuling", "target": "Wu, Yanqi Q", "weight": 4.0}, {"source": "Yan, Liuling", "target": "Doust, Andrew N", "weight": 1.0}, {"source": "Yan, Liuling", "target": "Huang, Yinghua", "weight": 2.0}, {"source": "Yan, Liuling", "target": "Carver, Brett F", "weight": 19.0}, {"source": "Yan, Liuling", "target": "Marburger, David A", "weight": 1.0}, {"source": "Yan, Liuling", "target": "Chen, Charles", "weight": 3.0}, {"source": "Dunn, Bruce L", "target": "Raun, William R", "weight": 2.0}, {"source": "Dunn, Bruce L", "target": "Zhang, Lu", "weight": 3.0}, {"source": "Dunn, Bruce L", "target": "Singh, Hardeep", "weight": 15.0}, {"source": "Dunn, Bruce L", "target": "Omara, Peter", "weight": 1.0}, {"source": "Dunn, Bruce L", "target": "Arnall, Daryl Brian", "weight": 2.0}, {"source": "Raun, William R", "target": "Omara, Peter", "weight": 18.0}, {"source": "Raun, William R", "target": "Wang, Ning", "weight": 1.0}, {"source": "Raun, William R", "target": "Arnall, Daryl Brian", "weight": 13.0}, {"source": "Raun, William R", "target": "Bushong, Jacob T", "weight": 8.0}, {"source": "Raun, William R", "target": "Dhillon, Jagmandeep", "weight": 10.0}, {"source": "Raun, William R", "target": "Fornah, Alimamy", "weight": 8.0}, {"source": "Raun, William R", "target": "Deng, Shiping", "weight": 2.0}, {"source": "Zhang, Lu", "target": "Singh, Hardeep", "weight": 1.0}, {"source": "Zhang, Lu", "target": "Wu, Yanqi Q", "weight": 1.0}, {"source": "Zhang, Lu", "target": "Yang, Ming", "weight": 2.0}, {"source": "Zhang, Lu", "target": "Xu, Tingying", "weight": 3.0}, {"source": "Singh, Hardeep", "target": "Omara, Peter", "weight": 1.0}, {"source": "Singh, Hardeep", "target": "Baath, Gurjinder S", "weight": 8.0}, {"source": "Omara, Peter", "target": "Dhillon, Jagmandeep", "weight": 5.0}, {"source": "Omara, Peter", "target": "Fornah, Alimamy", "weight": 5.0}, {"source": "Tadege, Million", "target": "Wen, Jiangqi", "weight": 12.0}, {"source": "Tadege, Million", "target": "Wu, Yanqi Q", "weight": 1.0}, {"source": "Tadege, Million", "target": "Mysore, Kirankumar S", "weight": 7.0}, {"source": "Tadege, Million", "target": "Allen, Randy D", "weight": 2.0}, {"source": "Tadege, Million", "target": "Carver, Brett F", "weight": 1.0}, {"source": "Wen, Jiangqi", "target": "Mysore, Kirankumar S", "weight": 29.0}, {"source": "Wen, Jiangqi", "target": "Feng, Feng", "weight": 1.0}, {"source": "Wu, Yanqi Q", "target": "Carver, Brett F", "weight": 6.0}, {"source": "Wu, Yanqi Q", "target": "Amgain, Naba R", "weight": 1.0}, {"source": "Wu, Yanqi Q", "target": "Cobb, Adam B", "weight": 1.0}, {"source": "Wu, Yanqi Q", "target": "Duell, Eric B", "weight": 1.0}, {"source": "Doust, Andrew N", "target": "Huang, Yinghua", "weight": 1.0}, {"source": "Doust, Andrew N", "target": "Chen, Charles", "weight": 1.0}, {"source": "Doust, Andrew N", "target": "Fishbein, Mark", "weight": 1.0}, {"source": "Huang, Yinghua", "target": "Carver, Brett F", "weight": 1.0}, {"source": "Mysore, Kirankumar S", "target": "Allen, Randy D", "weight": 4.0}, {"source": "Mysore, Kirankumar S", "target": "Feng, Feng", "weight": 1.0}, {"source": "Wang, Ning", "target": "Arnall, Daryl Brian", "weight": 1.0}, {"source": "Arnall, Daryl Brian", "target": "Carver, Brett F", "weight": 3.0}, {"source": "Arnall, Daryl Brian", "target": "Bushong, Jacob T", "weight": 5.0}, {"source": "Arnall, Daryl Brian", "target": "Marburger, David A", "weight": 1.0}, {"source": "Arnall, Daryl Brian", "target": "Lofton, Josh", "weight": 4.0}, {"source": "Arnall, Daryl Brian", "target": "Manuchehri, Misha R", "weight": 1.0}, {"source": "Arnall, Daryl Brian", "target": "Feng, Feng", "weight": 1.0}, {"source": "Carver, Brett F", "target": "Marburger, David A", "weight": 3.0}, {"source": "Carver, Brett F", "target": "Chen, Charles", "weight": 4.0}, {"source": "Carver, Brett F", "target": "Aoun, Meriem", "weight": 4.0}, {"source": "Bushong, Jacob T", "target": "Dhillon, Jagmandeep", "weight": 1.0}, {"source": "Bushong, Jacob T", "target": "Fornah, Alimamy", "weight": 1.0}, {"source": "Lofton, Josh", "target": "Manuchehri, Misha R", "weight": 1.0}, {"source": "Manuchehri, Misha R", "target": "Crose, Jodie A", "weight": 2.0}, {"source": "Dhillon, Jagmandeep", "target": "Fornah, Alimamy", "weight": 3.0}, {"source": "Chen, Charles", "target": "Fishbein, Mark", "weight": 1.0}, {"source": "Fishbein, Mark", "target": "McDonnell, Angela", "weight": 4.0}, {"source": "Cobb, Adam B", "target": "Duell, Eric B", "weight": 2.0}]};
+
+console.log("First edge:", graphData.links[0]);
+console.log("Nodes:", graphData.nodes.length);
+console.log("Edges:", graphData.links.length);
+
+const Graph = ForceGraph3D()(
+    document.getElementById("graph")
+);
+
+Graph
+    .nodeId("id")
+    .linkSource("source")
+    .linkTarget("target")
+    .graphData(graphData)
+    .backgroundColor("#FFFFFF")
+    .showNavInfo(false)
+
+    // Node appearance
+    .nodeColor(() => "#073763")
+    .nodeVal(node =>
+        1.5 + Math.sqrt(node.strength + 1) * 0.45
+    )
+
+    // Edge appearance
+    .linkColor(() => "#648FC9")
+    .linkOpacity(0.7)
+    .linkWidth(link =>
+        0.5 + Math.sqrt(Number(link.weight) || 1) * 0.35
+    );
+
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+
+<title>SouthDakota_adjacency</title>
+
+<style>
+
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #FFFFFF;
+}
+
+graph {
+    width: 100%;
+    height: 100%;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="graph"></div>
+
+
+<!-- 3D force graph -->
+<script src="https://cdn.jsdelivr.net/npm/3d-force-graph"></script>
+
+<script type="module">
+
+import ForceGraph3D
+    from "https://cdn.jsdelivr.net/npm/3d-force-graph/+esm";
+
+const graphData = {"nodes": [{"id": "Sehgal, Sunish Kumar", "name": "Sehgal, Sunish Kumar", "degree": 5, "strength": 26.0}, {"id": "Li, Wanlong", "name": "Li, Wanlong", "degree": 2, "strength": 2.0}, {"id": "Wu, Yajun", "name": "Wu, Yajun", "degree": 5, "strength": 5.0}, {"id": "Subramanian, Senthil", "name": "Subramanian, Senthil", "degree": 8, "strength": 17.0}, {"id": "Fennell, Anne Y", "name": "Fennell, Anne Y", "degree": 5, "strength": 5.0}, {"id": "Zhou, Ruanbao", "name": "Zhou, Ruanbao", "degree": 5, "strength": 28.0}, {"id": "Nepal, Madhav P", "name": "Nepal, Madhav P", "degree": 6, "strength": 10.0}, {"id": "Yen, Yang", "name": "Yen, Yang", "degree": 8, "strength": 11.0}, {"id": "Nawaz, Taufiq", "name": "Nawaz, Taufiq", "degree": 2, "strength": 70.0}, {"id": "Bucking, Heike", "name": "Bucking, Heike", "degree": 5, "strength": 10.0}, {"id": "Marzano, ShinYi Lee", "name": "Marzano, ShinYi Lee", "degree": 3, "strength": 5.0}, {"id": "Rohila, Jai S", "name": "Rohila, Jai S", "degree": 5, "strength": 5.0}, {"id": "Caffe, Melanie", "name": "Caffe, Melanie", "degree": 3, "strength": 5.0}, {"id": "Maimaitijiang, Maitiniyazi", "name": "Maimaitijiang, Maitiniyazi", "degree": 4, "strength": 12.0}, {"id": "GonzalezHernandez, Jose L", "name": "GonzalezHernandez, Jose L", "degree": 6, "strength": 7.0}, {"id": "Ali, Shaukat", "name": "Ali, Shaukat", "degree": 6, "strength": 33.0}, {"id": "Byamukama, Emmanuel", "name": "Byamukama, Emmanuel", "degree": 4, "strength": 10.0}, {"id": "Glover, Karl D", "name": "Glover, Karl D", "degree": 6, "strength": 12.0}, {"id": "Clay, Sharon A", "name": "Clay, Sharon A", "degree": 4, "strength": 7.0}, {"id": "Fahad, Shah", "name": "Fahad, Shah", "degree": 2, "strength": 69.0}, {"id": "Auger, Donald", "name": "Auger, Donald", "degree": 2, "strength": 3.0}, {"id": "Brozel, Volker S", "name": "Brozel, Volker S", "degree": 4, "strength": 8.0}, {"id": "Jiang, GuoLiang", "name": "Jiang, GuoLiang", "degree": 2, "strength": 2.0}], "links": [{"source": "Sehgal, Sunish Kumar", "target": "Subramanian, Senthil", "weight": 1.0}, {"source": "Sehgal, Sunish Kumar", "target": "Bucking, Heike", "weight": 1.0}, {"source": "Sehgal, Sunish Kumar", "target": "Maimaitijiang, Maitiniyazi", "weight": 4.0}, {"source": "Sehgal, Sunish Kumar", "target": "Ali, Shaukat", "weight": 16.0}, {"source": "Sehgal, Sunish Kumar", "target": "Glover, Karl D", "weight": 4.0}, {"source": "Li, Wanlong", "target": "Wu, Yajun", "weight": 1.0}, {"source": "Li, Wanlong", "target": "Subramanian, Senthil", "weight": 1.0}, {"source": "Wu, Yajun", "target": "Fennell, Anne Y", "weight": 1.0}, {"source": "Wu, Yajun", "target": "GonzalezHernandez, Jose L", "weight": 1.0}, {"source": "Wu, Yajun", "target": "Auger, Donald", "weight": 1.0}, {"source": "Wu, Yajun", "target": "Brozel, Volker S", "weight": 1.0}, {"source": "Subramanian, Senthil", "target": "Fennell, Anne Y", "weight": 1.0}, {"source": "Subramanian, Senthil", "target": "Zhou, Ruanbao", "weight": 1.0}, {"source": "Subramanian, Senthil", "target": "Bucking, Heike", "weight": 6.0}, {"source": "Subramanian, Senthil", "target": "Rohila, Jai S", "weight": 1.0}, {"source": "Subramanian, Senthil", "target": "Clay, Sharon A", "weight": 1.0}, {"source": "Subramanian, Senthil", "target": "Brozel, Volker S", "weight": 5.0}, {"source": "Fennell, Anne Y", "target": "Zhou, Ruanbao", "weight": 1.0}, {"source": "Fennell, Anne Y", "target": "Nepal, Madhav P", "weight": 1.0}, {"source": "Fennell, Anne Y", "target": "Clay, Sharon A", "weight": 1.0}, {"source": "Zhou, Ruanbao", "target": "Nepal, Madhav P", "weight": 1.0}, {"source": "Zhou, Ruanbao", "target": "Nawaz, Taufiq", "weight": 13.0}, {"source": "Zhou, Ruanbao", "target": "Fahad, Shah", "weight": 12.0}, {"source": "Nepal, Madhav P", "target": "Yen, Yang", "weight": 2.0}, {"source": "Nepal, Madhav P", "target": "Ali, Shaukat", "weight": 4.0}, {"source": "Nepal, Madhav P", "target": "Byamukama, Emmanuel", "weight": 1.0}, {"source": "Nepal, Madhav P", "target": "Brozel, Volker S", "weight": 1.0}, {"source": "Yen, Yang", "target": "Marzano, ShinYi Lee", "weight": 1.0}, {"source": "Yen, Yang", "target": "Rohila, Jai S", "weight": 1.0}, {"source": "Yen, Yang", "target": "Ali, Shaukat", "weight": 2.0}, {"source": "Yen, Yang", "target": "Byamukama, Emmanuel", "weight": 1.0}, {"source": "Yen, Yang", "target": "Glover, Karl D", "weight": 1.0}, {"source": "Yen, Yang", "target": "Auger, Donald", "weight": 2.0}, {"source": "Yen, Yang", "target": "Jiang, GuoLiang", "weight": 1.0}, {"source": "Nawaz, Taufiq", "target": "Fahad, Shah", "weight": 57.0}, {"source": "Bucking, Heike", "target": "Marzano, ShinYi Lee", "weight": 1.0}, {"source": "Bucking, Heike", "target": "Rohila, Jai S", "weight": 1.0}, {"source": "Bucking, Heike", "target": "Caffe, Melanie", "weight": 1.0}, {"source": "Marzano, ShinYi Lee", "target": "Clay, Sharon A", "weight": 3.0}, {"source": "Rohila, Jai S", "target": "GonzalezHernandez, Jose L", "weight": 1.0}, {"source": "Rohila, Jai S", "target": "Glover, Karl D", "weight": 1.0}, {"source": "Caffe, Melanie", "target": "Maimaitijiang, Maitiniyazi", "weight": 3.0}, {"source": "Caffe, Melanie", "target": "GonzalezHernandez, Jose L", "weight": 1.0}, {"source": "Maimaitijiang, Maitiniyazi", "target": "Ali, Shaukat", "weight": 3.0}, {"source": "Maimaitijiang, Maitiniyazi", "target": "Glover, Karl D", "weight": 2.0}, {"source": "GonzalezHernandez, Jose L", "target": "Glover, Karl D", "weight": 2.0}, {"source": "GonzalezHernandez, Jose L", "target": "Brozel, Volker S", "weight": 1.0}, {"source": "GonzalezHernandez, Jose L", "target": "Jiang, GuoLiang", "weight": 1.0}, {"source": "Ali, Shaukat", "target": "Byamukama, Emmanuel", "weight": 6.0}, {"source": "Ali, Shaukat", "target": "Glover, Karl D", "weight": 2.0}, {"source": "Byamukama, Emmanuel", "target": "Clay, Sharon A", "weight": 2.0}]};
+
+console.log("First edge:", graphData.links[0]);
+console.log("Nodes:", graphData.nodes.length);
+console.log("Edges:", graphData.links.length);
+
+const Graph = ForceGraph3D()(
+    document.getElementById("graph")
+);
+
+Graph
+    .nodeId("id")
+    .linkSource("source")
+    .linkTarget("target")
+    .graphData(graphData)
+    .backgroundColor("#FFFFFF")
+    .showNavInfo(false)
+
+    // Node appearance
+    .nodeColor(() => "#073763")
+    .nodeVal(node =>
+        1.5 + Math.sqrt(node.strength + 1) * 0.45
+    )
+
+    // Edge appearance
+    .linkColor(() => "#648FC9")
+    .linkOpacity(0.7)
+    .linkWidth(link =>
+        0.5 + Math.sqrt(Number(link.weight) || 1) * 0.35
+    );
+
+</script>
+
+</body>
+</html>
+

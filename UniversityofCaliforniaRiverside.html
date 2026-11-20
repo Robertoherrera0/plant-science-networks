@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+
+<title>UCRiver_adjacency</title>
+
+<style>
+
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #FFFFFF;
+}
+
+graph {
+    width: 100%;
+    height: 100%;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="graph"></div>
+
+
+<!-- 3D force graph -->
+<script src="https://cdn.jsdelivr.net/npm/3d-force-graph"></script>
+
+<script type="module">
+
+import ForceGraph3D
+    from "https://cdn.jsdelivr.net/npm/3d-force-graph/+esm";
+
+const graphData = {"nodes": [{"id": "Chen, Xuemei", "name": "Chen, Xuemei", "degree": 6, "strength": 18.0}, {"id": "Flynn, Nora", "name": "Flynn, Nora", "degree": 3, "strength": 7.0}, {"id": "Ma, Wenbo", "name": "Ma, Wenbo", "degree": 7, "strength": 14.0}, {"id": "Eulgem, Thomas", "name": "Eulgem, Thomas", "degree": 5, "strength": 6.0}, {"id": "Yang, Zhenbiao", "name": "Yang, Zhenbiao", "degree": 7, "strength": 15.0}, {"id": "Jin, Hailing", "name": "Jin, Hailing", "degree": 4, "strength": 4.0}, {"id": "Judelson, Howard S", "name": "Judelson, Howard S", "degree": 1, "strength": 1.0}, {"id": "Roper, M Caroline", "name": "Roper, M Caroline", "degree": 4, "strength": 24.0}, {"id": "Ramadugu, Chandrika", "name": "Ramadugu, Chandrika", "degree": 2, "strength": 6.0}, {"id": "BaileySerres, Julia", "name": "BaileySerres, Julia", "degree": 5, "strength": 5.0}, {"id": "Jia, Zhenyu", "name": "Jia, Zhenyu", "degree": 12, "strength": 28.0}, {"id": "Dehesh, Katayoon", "name": "Dehesh, Katayoon", "degree": 4, "strength": 4.0}, {"id": "Chen, Meng", "name": "Chen, Meng", "degree": 2, "strength": 9.0}, {"id": "Nelson, David C", "name": "Nelson, David C", "degree": 4, "strength": 5.0}, {"id": "Van Norman, Jaimie M", "name": "Van Norman, Jaimie M", "degree": 5, "strength": 15.0}, {"id": "Rasmussen, Carolyn G", "name": "Rasmussen, Carolyn G", "degree": 7, "strength": 12.0}, {"id": "Vidalakis, Georgios", "name": "Vidalakis, Georgios", "degree": 6, "strength": 23.0}, {"id": "Cutler, Sean R", "name": "Cutler, Sean R", "degree": 2, "strength": 13.0}, {"id": "Vaidya, Aditya S", "name": "Vaidya, Aditya S", "degree": 1, "strength": 12.0}, {"id": "Elkereamy, Ashraf", "name": "Elkereamy, Ashraf", "degree": 3, "strength": 4.0}, {"id": "Rolshausen, Philippe E", "name": "Rolshausen, Philippe E", "degree": 5, "strength": 25.0}, {"id": "Kaloshian, Isgouhi", "name": "Kaloshian, Isgouhi", "degree": 9, "strength": 13.0}, {"id": "Roberts, Philip A", "name": "Roberts, Philip A", "degree": 9, "strength": 56.0}, {"id": "Song, Jikui", "name": "Song, Jikui", "degree": 2, "strength": 5.0}, {"id": "Pagliaccia, Deborah", "name": "Pagliaccia, Deborah", "degree": 2, "strength": 12.0}, {"id": "Nagel, Dawn H", "name": "Nagel, Dawn H", "degree": 2, "strength": 3.0}, {"id": "Reddy, G Venugopala", "name": "Reddy, G Venugopala", "degree": 3, "strength": 11.0}, {"id": "Schonbeck, Leonie C", "name": "Schonbeck, Leonie C", "degree": 2, "strength": 2.0}, {"id": "Xu, Shizhong", "name": "Xu, Shizhong", "degree": 5, "strength": 9.0}, {"id": "Lukaszewski, Adam J", "name": "Lukaszewski, Adam J", "degree": 3, "strength": 3.0}, {"id": "Ding, ShouWei", "name": "Ding, ShouWei", "degree": 1, "strength": 1.0}, {"id": "Ng, James C K", "name": "Ng, James C K", "degree": 2, "strength": 2.0}, {"id": "Walling, Linda L", "name": "Walling, Linda L", "degree": 3, "strength": 10.0}, {"id": "Litt, Amy", "name": "Litt, Amy", "degree": 2, "strength": 5.0}, {"id": "Mauck, Kerry E", "name": "Mauck, Kerry E", "degree": 2, "strength": 3.0}, {"id": "Roose, Mikeal L", "name": "Roose, Mikeal L", "degree": 5, "strength": 13.0}, {"id": "MunozAmatriain, Maria", "name": "MunozAmatriain, Maria", "degree": 6, "strength": 45.0}, {"id": "Huynh, BaoLam", "name": "Huynh, BaoLam", "degree": 6, "strength": 44.0}, {"id": "Bektas, Harun", "name": "Bektas, Harun", "degree": 1, "strength": 1.0}, {"id": "Close, Timothy J", "name": "Close, Timothy J", "degree": 7, "strength": 64.0}, {"id": "Herniter, Ira A", "name": "Herniter, Ira A", "degree": 9, "strength": 35.0}, {"id": "Dillman, Adler R", "name": "Dillman, Adler R", "degree": 2, "strength": 6.0}, {"id": "Groen, Simon C", "name": "Groen, Simon C", "degree": 3, "strength": 8.0}, {"id": "Scudiero, Elia", "name": "Scudiero, Elia", "degree": 1, "strength": 1.0}, {"id": "Adaskaveg, James E", "name": "Adaskaveg, James E", "degree": 1, "strength": 1.0}, {"id": "Alber, Mark", "name": "Alber, Mark", "degree": 3, "strength": 23.0}, {"id": "Chen, Weitao", "name": "Chen, Weitao", "degree": 4, "strength": 22.0}, {"id": "Byrne, Frank J", "name": "Byrne, Frank J", "degree": 3, "strength": 10.0}, {"id": "Ettinger, Cassandra L", "name": "Ettinger, Cassandra L", "degree": 2, "strength": 8.0}, {"id": "GraftonCardwell, Elizabeth E", "name": "GraftonCardwell, Elizabeth E", "degree": 1, "strength": 3.0}, {"id": "Chater, John M", "name": "Chater, John M", "degree": 4, "strength": 17.0}, {"id": "Grantz, David A", "name": "Grantz, David A", "degree": 1, "strength": 1.0}, {"id": "Pivovaroff, Alexandria L", "name": "Pivovaroff, Alexandria L", "degree": 2, "strength": 2.0}, {"id": "Landis, Jacob B", "name": "Landis, Jacob B", "degree": 2, "strength": 5.0}, {"id": "VillanuevaAlmanza, Lorena", "name": "VillanuevaAlmanza, Lorena", "degree": 1, "strength": 1.0}, {"id": "Bowman, Christian S", "name": "Bowman, Christian S", "degree": 7, "strength": 9.0}, {"id": "D Nabity, Paul", "name": "D Nabity, Paul", "degree": 3, "strength": 4.0}, {"id": "FrancoNavarro, Francisco", "name": "FrancoNavarro, Francisco", "degree": 1, "strength": 1.0}, {"id": "Li, Yanran", "name": "Li, Yanran", "degree": 1, "strength": 1.0}], "links": [{"source": "Chen, Xuemei", "target": "Flynn, Nora", "weight": 5.0}, {"source": "Chen, Xuemei", "target": "Ma, Wenbo", "weight": 2.0}, {"source": "Chen, Xuemei", "target": "Eulgem, Thomas", "weight": 1.0}, {"source": "Chen, Xuemei", "target": "Yang, Zhenbiao", "weight": 1.0}, {"source": "Chen, Xuemei", "target": "BaileySerres, Julia", "weight": 1.0}, {"source": "Chen, Xuemei", "target": "Chen, Meng", "weight": 8.0}, {"source": "Flynn, Nora", "target": "Yang, Zhenbiao", "weight": 1.0}, {"source": "Flynn, Nora", "target": "Chen, Meng", "weight": 1.0}, {"source": "Ma, Wenbo", "target": "BaileySerres, Julia", "weight": 1.0}, {"source": "Ma, Wenbo", "target": "Vidalakis, Georgios", "weight": 2.0}, {"source": "Ma, Wenbo", "target": "Kaloshian, Isgouhi", "weight": 1.0}, {"source": "Ma, Wenbo", "target": "Song, Jikui", "weight": 4.0}, {"source": "Ma, Wenbo", "target": "Pagliaccia, Deborah", "weight": 2.0}, {"source": "Ma, Wenbo", "target": "Nagel, Dawn H", "weight": 2.0}, {"source": "Eulgem, Thomas", "target": "BaileySerres, Julia", "weight": 1.0}, {"source": "Eulgem, Thomas", "target": "Dehesh, Katayoon", "weight": 1.0}, {"source": "Eulgem, Thomas", "target": "Kaloshian, Isgouhi", "weight": 2.0}, {"source": "Eulgem, Thomas", "target": "Roberts, Philip A", "weight": 1.0}, {"source": "Yang, Zhenbiao", "target": "Dehesh, Katayoon", "weight": 1.0}, {"source": "Yang, Zhenbiao", "target": "Van Norman, Jaimie M", "weight": 7.0}, {"source": "Yang, Zhenbiao", "target": "Rasmussen, Carolyn G", "weight": 3.0}, {"source": "Yang, Zhenbiao", "target": "Song, Jikui", "weight": 1.0}, {"source": "Yang, Zhenbiao", "target": "Chen, Weitao", "weight": 1.0}, {"source": "Jin, Hailing", "target": "Judelson, Howard S", "weight": 1.0}, {"source": "Jin, Hailing", "target": "Roper, M Caroline", "weight": 1.0}, {"source": "Jin, Hailing", "target": "Ramadugu, Chandrika", "weight": 1.0}, {"source": "Jin, Hailing", "target": "Jia, Zhenyu", "weight": 1.0}, {"source": "Roper, M Caroline", "target": "Vidalakis, Georgios", "weight": 4.0}, {"source": "Roper, M Caroline", "target": "Elkereamy, Ashraf", "weight": 1.0}, {"source": "Roper, M Caroline", "target": "Rolshausen, Philippe E", "weight": 18.0}, {"source": "Ramadugu, Chandrika", "target": "Roose, Mikeal L", "weight": 5.0}, {"source": "BaileySerres, Julia", "target": "Jia, Zhenyu", "weight": 1.0}, {"source": "BaileySerres, Julia", "target": "Dehesh, Katayoon", "weight": 1.0}, {"source": "Jia, Zhenyu", "target": "Roberts, Philip A", "weight": 1.0}, {"source": "Jia, Zhenyu", "target": "Lukaszewski, Adam J", "weight": 1.0}, {"source": "Jia, Zhenyu", "target": "Ding, ShouWei", "weight": 1.0}, {"source": "Jia, Zhenyu", "target": "Roose, Mikeal L", "weight": 3.0}, {"source": "Jia, Zhenyu", "target": "MunozAmatriain, Maria", "weight": 1.0}, {"source": "Jia, Zhenyu", "target": "Huynh, BaoLam", "weight": 1.0}, {"source": "Jia, Zhenyu", "target": "Close, Timothy J", "weight": 1.0}, {"source": "Jia, Zhenyu", "target": "Herniter, Ira A", "weight": 3.0}, {"source": "Jia, Zhenyu", "target": "Chater, John M", "weight": 12.0}, {"source": "Jia, Zhenyu", "target": "Bowman, Christian S", "weight": 2.0}, {"source": "Dehesh, Katayoon", "target": "Lukaszewski, Adam J", "weight": 1.0}, {"source": "Nelson, David C", "target": "Van Norman, Jaimie M", "weight": 2.0}, {"source": "Nelson, David C", "target": "Rasmussen, Carolyn G", "weight": 1.0}, {"source": "Nelson, David C", "target": "Cutler, Sean R", "weight": 1.0}, {"source": "Nelson, David C", "target": "Li, Yanran", "weight": 1.0}, {"source": "Van Norman, Jaimie M", "target": "Rasmussen, Carolyn G", "weight": 4.0}, {"source": "Van Norman, Jaimie M", "target": "Kaloshian, Isgouhi", "weight": 1.0}, {"source": "Van Norman, Jaimie M", "target": "Chen, Weitao", "weight": 1.0}, {"source": "Rasmussen, Carolyn G", "target": "Nagel, Dawn H", "weight": 1.0}, {"source": "Rasmussen, Carolyn G", "target": "Reddy, G Venugopala", "weight": 1.0}, {"source": "Rasmussen, Carolyn G", "target": "Schonbeck, Leonie C", "weight": 1.0}, {"source": "Rasmussen, Carolyn G", "target": "Alber, Mark", "weight": 1.0}, {"source": "Vidalakis, Georgios", "target": "Elkereamy, Ashraf", "weight": 2.0}, {"source": "Vidalakis, Georgios", "target": "Rolshausen, Philippe E", "weight": 4.0}, {"source": "Vidalakis, Georgios", "target": "Pagliaccia, Deborah", "weight": 10.0}, {"source": "Vidalakis, Georgios", "target": "Ng, James C K", "weight": 1.0}, {"source": "Cutler, Sean R", "target": "Vaidya, Aditya S", "weight": 12.0}, {"source": "Elkereamy, Ashraf", "target": "Rolshausen, Philippe E", "weight": 1.0}, {"source": "Rolshausen, Philippe E", "target": "Scudiero, Elia", "weight": 1.0}, {"source": "Rolshausen, Philippe E", "target": "Adaskaveg, James E", "weight": 1.0}, {"source": "Kaloshian, Isgouhi", "target": "Roberts, Philip A", "weight": 1.0}, {"source": "Kaloshian, Isgouhi", "target": "Ng, James C K", "weight": 1.0}, {"source": "Kaloshian, Isgouhi", "target": "Walling, Linda L", "weight": 3.0}, {"source": "Kaloshian, Isgouhi", "target": "Litt, Amy", "weight": 1.0}, {"source": "Kaloshian, Isgouhi", "target": "Mauck, Kerry E", "weight": 2.0}, {"source": "Kaloshian, Isgouhi", "target": "D Nabity, Paul", "weight": 1.0}, {"source": "Roberts, Philip A", "target": "Xu, Shizhong", "weight": 2.0}, {"source": "Roberts, Philip A", "target": "MunozAmatriain, Maria", "weight": 7.0}, {"source": "Roberts, Philip A", "target": "Huynh, BaoLam", "weight": 20.0}, {"source": "Roberts, Philip A", "target": "Close, Timothy J", "weight": 18.0}, {"source": "Roberts, Philip A", "target": "Herniter, Ira A", "weight": 5.0}, {"source": "Roberts, Philip A", "target": "Bowman, Christian S", "weight": 1.0}, {"source": "Reddy, G Venugopala", "target": "Alber, Mark", "weight": 6.0}, {"source": "Reddy, G Venugopala", "target": "Chen, Weitao", "weight": 4.0}, {"source": "Schonbeck, Leonie C", "target": "Pivovaroff, Alexandria L", "weight": 1.0}, {"source": "Xu, Shizhong", "target": "MunozAmatriain, Maria", "weight": 2.0}, {"source": "Xu, Shizhong", "target": "Huynh, BaoLam", "weight": 1.0}, {"source": "Xu, Shizhong", "target": "Close, Timothy J", "weight": 2.0}, {"source": "Xu, Shizhong", "target": "Herniter, Ira A", "weight": 2.0}, {"source": "Lukaszewski, Adam J", "target": "Bektas, Harun", "weight": 1.0}, {"source": "Walling, Linda L", "target": "Byrne, Frank J", "weight": 3.0}, {"source": "Walling, Linda L", "target": "Ettinger, Cassandra L", "weight": 4.0}, {"source": "Litt, Amy", "target": "Landis, Jacob B", "weight": 4.0}, {"source": "Mauck, Kerry E", "target": "D Nabity, Paul", "weight": 1.0}, {"source": "Roose, Mikeal L", "target": "Herniter, Ira A", "weight": 1.0}, {"source": "Roose, Mikeal L", "target": "Chater, John M", "weight": 3.0}, {"source": "Roose, Mikeal L", "target": "Bowman, Christian S", "weight": 1.0}, {"source": "MunozAmatriain, Maria", "target": "Huynh, BaoLam", "weight": 6.0}, {"source": "MunozAmatriain, Maria", "target": "Close, Timothy J", "weight": 20.0}, {"source": "MunozAmatriain, Maria", "target": "Herniter, Ira A", "weight": 9.0}, {"source": "Huynh, BaoLam", "target": "Close, Timothy J", "weight": 13.0}, {"source": "Huynh, BaoLam", "target": "Herniter, Ira A", "weight": 3.0}, {"source": "Close, Timothy J", "target": "Herniter, Ira A", "weight": 9.0}, {"source": "Close, Timothy J", "target": "Bowman, Christian S", "weight": 1.0}, {"source": "Herniter, Ira A", "target": "Chater, John M", "weight": 1.0}, {"source": "Herniter, Ira A", "target": "Bowman, Christian S", "weight": 2.0}, {"source": "Dillman, Adler R", "target": "Groen, Simon C", "weight": 5.0}, {"source": "Dillman, Adler R", "target": "Bowman, Christian S", "weight": 1.0}, {"source": "Groen, Simon C", "target": "D Nabity, Paul", "weight": 2.0}, {"source": "Groen, Simon C", "target": "FrancoNavarro, Francisco", "weight": 1.0}, {"source": "Alber, Mark", "target": "Chen, Weitao", "weight": 16.0}, {"source": "Byrne, Frank J", "target": "Ettinger, Cassandra L", "weight": 4.0}, {"source": "Byrne, Frank J", "target": "GraftonCardwell, Elizabeth E", "weight": 3.0}, {"source": "Chater, John M", "target": "Bowman, Christian S", "weight": 1.0}, {"source": "Grantz, David A", "target": "Pivovaroff, Alexandria L", "weight": 1.0}, {"source": "Landis, Jacob B", "target": "VillanuevaAlmanza, Lorena", "weight": 1.0}]};
+
+console.log("First edge:", graphData.links[0]);
+console.log("Nodes:", graphData.nodes.length);
+console.log("Edges:", graphData.links.length);
+
+const Graph = ForceGraph3D()(
+    document.getElementById("graph")
+);
+
+Graph
+    .nodeId("id")
+    .linkSource("source")
+    .linkTarget("target")
+    .graphData(graphData)
+    .backgroundColor("#FFFFFF")
+    .showNavInfo(false)
+
+    // Node appearance
+    .nodeColor(() => "#073763")
+    .nodeVal(node =>
+        1.5 + Math.sqrt(node.strength + 1) * 0.45
+    )
+
+    // Edge appearance
+    .linkColor(() => "#648FC9")
+    .linkOpacity(0.7)
+    .linkWidth(link =>
+        0.5 + Math.sqrt(Number(link.weight) || 1) * 0.35
+    );
+
+</script>
+
+</body>
+</html>
+

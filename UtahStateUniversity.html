@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+
+<title>UtahState_adjacency</title>
+
+<style>
+
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #FFFFFF;
+}
+
+graph {
+    width: 100%;
+    height: 100%;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="graph"></div>
+
+
+<!-- 3D force graph -->
+<script src="https://cdn.jsdelivr.net/npm/3d-force-graph"></script>
+
+<script type="module">
+
+import ForceGraph3D
+    from "https://cdn.jsdelivr.net/npm/3d-force-graph/+esm";
+
+const graphData = {"nodes": [{"id": "Robins, Joseph G", "name": "Robins, Joseph G", "degree": 4, "strength": 21.0}, {"id": "MacAdam, Jennifer W", "name": "MacAdam, Jennifer W", "degree": 1, "strength": 13.0}, {"id": "Peel, Michael D", "name": "Peel, Michael D", "degree": 3, "strength": 5.0}, {"id": "Wang, Richard RC", "name": "Wang, Richard RC", "degree": 3, "strength": 6.0}, {"id": "Larson, Steven R", "name": "Larson, Steven R", "degree": 4, "strength": 7.0}, {"id": "Jensen, Kevin B", "name": "Jensen, Kevin B", "degree": 6, "strength": 31.0}, {"id": "Schupp, Eugene W", "name": "Schupp, Eugene W", "degree": 3, "strength": 9.0}, {"id": "Schneider, Gerald F", "name": "Schneider, Gerald F", "degree": 1, "strength": 2.0}, {"id": "Villalba, Juan J", "name": "Villalba, Juan J", "degree": 4, "strength": 17.0}, {"id": "Beckman, Noelle G", "name": "Beckman, Noelle G", "degree": 2, "strength": 7.0}, {"id": "Monaco, Thomas A", "name": "Monaco, Thomas A", "degree": 7, "strength": 10.0}], "links": [{"source": "Robins, Joseph G", "target": "Wang, Richard RC", "weight": 1.0}, {"source": "Robins, Joseph G", "target": "Jensen, Kevin B", "weight": 18.0}, {"source": "Robins, Joseph G", "target": "Larson, Steven R", "weight": 1.0}, {"source": "Robins, Joseph G", "target": "Monaco, Thomas A", "weight": 1.0}, {"source": "MacAdam, Jennifer W", "target": "Villalba, Juan J", "weight": 13.0}, {"source": "Peel, Michael D", "target": "Jensen, Kevin B", "weight": 3.0}, {"source": "Peel, Michael D", "target": "Larson, Steven R", "weight": 1.0}, {"source": "Peel, Michael D", "target": "Monaco, Thomas A", "weight": 1.0}, {"source": "Wang, Richard RC", "target": "Jensen, Kevin B", "weight": 4.0}, {"source": "Wang, Richard RC", "target": "Monaco, Thomas A", "weight": 1.0}, {"source": "Larson, Steven R", "target": "Jensen, Kevin B", "weight": 4.0}, {"source": "Larson, Steven R", "target": "Monaco, Thomas A", "weight": 1.0}, {"source": "Jensen, Kevin B", "target": "Villalba, Juan J", "weight": 1.0}, {"source": "Jensen, Kevin B", "target": "Monaco, Thomas A", "weight": 1.0}, {"source": "Schupp, Eugene W", "target": "Villalba, Juan J", "weight": 1.0}, {"source": "Schupp, Eugene W", "target": "Monaco, Thomas A", "weight": 3.0}, {"source": "Schupp, Eugene W", "target": "Beckman, Noelle G", "weight": 5.0}, {"source": "Schneider, Gerald F", "target": "Beckman, Noelle G", "weight": 2.0}, {"source": "Villalba, Juan J", "target": "Monaco, Thomas A", "weight": 2.0}]};
+
+console.log("First edge:", graphData.links[0]);
+console.log("Nodes:", graphData.nodes.length);
+console.log("Edges:", graphData.links.length);
+
+const Graph = ForceGraph3D()(
+    document.getElementById("graph")
+);
+
+Graph
+    .nodeId("id")
+    .linkSource("source")
+    .linkTarget("target")
+    .graphData(graphData)
+    .backgroundColor("#FFFFFF")
+    .showNavInfo(false)
+
+    // Node appearance
+    .nodeColor(() => "#073763")
+    .nodeVal(node =>
+        1.5 + Math.sqrt(node.strength + 1) * 0.45
+    )
+
+    // Edge appearance
+    .linkColor(() => "#648FC9")
+    .linkOpacity(0.7)
+    .linkWidth(link =>
+        0.5 + Math.sqrt(Number(link.weight) || 1) * 0.35
+    );
+
+</script>
+
+</body>
+</html>
+

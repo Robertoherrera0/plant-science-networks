@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+
+<title>Massachusetts_adjacency</title>
+
+<style>
+
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #FFFFFF;
+}
+
+graph {
+    width: 100%;
+    height: 100%;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="graph"></div>
+
+
+<!-- 3D force graph -->
+<script src="https://cdn.jsdelivr.net/npm/3d-force-graph"></script>
+
+<script type="module">
+
+import ForceGraph3D
+    from "https://cdn.jsdelivr.net/npm/3d-force-graph/+esm";
+
+const graphData = {"nodes": [{"id": "Barker, Allen V", "name": "Barker, Allen V", "degree": 3, "strength": 25.0}, {"id": "Xing, Baoshan", "name": "Xing, Baoshan", "degree": 9, "strength": 87.0}, {"id": "Hashemi, Masoud", "name": "Hashemi, Masoud", "degree": 6, "strength": 36.0}, {"id": "Jung, Geunhwa", "name": "Jung, Geunhwa", "degree": 7, "strength": 9.0}, {"id": "Dhankher, Om Parkash", "name": "Dhankher, Om Parkash", "degree": 6, "strength": 31.0}, {"id": "Rui, Yukui", "name": "Rui, Yukui", "degree": 2, "strength": 23.0}, {"id": "He, Lili", "name": "He, Lili", "degree": 5, "strength": 48.0}, {"id": "Hazen, Samuel P", "name": "Hazen, Samuel P", "degree": 2, "strength": 3.0}, {"id": "Keiser, Ashley D", "name": "Keiser, Ashley D", "degree": 1, "strength": 3.0}, {"id": "Pirbalouti, Abdollah Ghasemi", "name": "Pirbalouti, Abdollah Ghasemi", "degree": 1, "strength": 2.0}, {"id": "Ashraf, Mohammad Arif", "name": "Ashraf, Mohammad Arif", "degree": 4, "strength": 6.0}, {"id": "Facette, Michelle R", "name": "Facette, Michelle R", "degree": 2, "strength": 5.0}, {"id": "Rashidzade, Maryam", "name": "Rashidzade, Maryam", "degree": 4, "strength": 7.0}, {"id": "Yadav, Arpita", "name": "Yadav, Arpita", "degree": 1, "strength": 1.0}, {"id": "Nan, Qiong", "name": "Nan, Qiong", "degree": 2, "strength": 3.0}, {"id": "Cheung, Alice Y", "name": "Cheung, Alice Y", "degree": 4, "strength": 27.0}, {"id": "Wu, HenMing", "name": "Wu, HenMing", "degree": 2, "strength": 25.0}, {"id": "Wang, Dong", "name": "Wang, Dong", "degree": 4, "strength": 4.0}, {"id": "Vierling, Elizabeth", "name": "Vierling, Elizabeth", "degree": 2, "strength": 8.0}, {"id": "Soares, Andre", "name": "Soares, Andre", "degree": 1, "strength": 1.0}, {"id": "Caicedo, Ana L", "name": "Caicedo, Ana L", "degree": 4, "strength": 9.0}, {"id": "Ma, LiJun", "name": "Ma, LiJun", "degree": 4, "strength": 6.0}, {"id": "Wick, Robert L", "name": "Wick, Robert L", "degree": 2, "strength": 5.0}, {"id": "Mafu, Sibongile", "name": "Mafu, Sibongile", "degree": 1, "strength": 1.0}, {"id": "McClements, David Julian", "name": "McClements, David Julian", "degree": 3, "strength": 101.0}, {"id": "Xiao, Hang", "name": "Xiao, Hang", "degree": 3, "strength": 96.0}, {"id": "Barnett, Jacob R", "name": "Barnett, Jacob R", "degree": 2, "strength": 5.0}, {"id": "Kim, Minsoo", "name": "Kim, Minsoo", "degree": 3, "strength": 9.0}], "links": [{"source": "Barker, Allen V", "target": "Xing, Baoshan", "weight": 3.0}, {"source": "Barker, Allen V", "target": "Hashemi, Masoud", "weight": 21.0}, {"source": "Barker, Allen V", "target": "Jung, Geunhwa", "weight": 1.0}, {"source": "Xing, Baoshan", "target": "Hashemi, Masoud", "weight": 8.0}, {"source": "Xing, Baoshan", "target": "Jung, Geunhwa", "weight": 2.0}, {"source": "Xing, Baoshan", "target": "Dhankher, Om Parkash", "weight": 24.0}, {"source": "Xing, Baoshan", "target": "Rui, Yukui", "weight": 21.0}, {"source": "Xing, Baoshan", "target": "He, Lili", "weight": 17.0}, {"source": "Xing, Baoshan", "target": "Wang, Dong", "weight": 1.0}, {"source": "Xing, Baoshan", "target": "McClements, David Julian", "weight": 9.0}, {"source": "Xing, Baoshan", "target": "Xiao, Hang", "weight": 2.0}, {"source": "Hashemi, Masoud", "target": "Jung, Geunhwa", "weight": 1.0}, {"source": "Hashemi, Masoud", "target": "Dhankher, Om Parkash", "weight": 1.0}, {"source": "Hashemi, Masoud", "target": "Keiser, Ashley D", "weight": 3.0}, {"source": "Hashemi, Masoud", "target": "Pirbalouti, Abdollah Ghasemi", "weight": 2.0}, {"source": "Jung, Geunhwa", "target": "Dhankher, Om Parkash", "weight": 1.0}, {"source": "Jung, Geunhwa", "target": "He, Lili", "weight": 1.0}, {"source": "Jung, Geunhwa", "target": "Wick, Robert L", "weight": 2.0}, {"source": "Jung, Geunhwa", "target": "Kim, Minsoo", "weight": 1.0}, {"source": "Dhankher, Om Parkash", "target": "Rui, Yukui", "weight": 2.0}, {"source": "Dhankher, Om Parkash", "target": "He, Lili", "weight": 2.0}, {"source": "Dhankher, Om Parkash", "target": "Hazen, Samuel P", "weight": 1.0}, {"source": "He, Lili", "target": "McClements, David Julian", "weight": 13.0}, {"source": "He, Lili", "target": "Xiao, Hang", "weight": 15.0}, {"source": "Hazen, Samuel P", "target": "Caicedo, Ana L", "weight": 2.0}, {"source": "Ashraf, Mohammad Arif", "target": "Facette, Michelle R", "weight": 3.0}, {"source": "Ashraf, Mohammad Arif", "target": "Rashidzade, Maryam", "weight": 1.0}, {"source": "Ashraf, Mohammad Arif", "target": "Yadav, Arpita", "weight": 1.0}, {"source": "Ashraf, Mohammad Arif", "target": "Nan, Qiong", "weight": 1.0}, {"source": "Facette, Michelle R", "target": "Nan, Qiong", "weight": 2.0}, {"source": "Rashidzade, Maryam", "target": "Caicedo, Ana L", "weight": 3.0}, {"source": "Rashidzade, Maryam", "target": "Ma, LiJun", "weight": 1.0}, {"source": "Rashidzade, Maryam", "target": "Barnett, Jacob R", "weight": 2.0}, {"source": "Cheung, Alice Y", "target": "Wu, HenMing", "weight": 24.0}, {"source": "Cheung, Alice Y", "target": "Wang, Dong", "weight": 1.0}, {"source": "Cheung, Alice Y", "target": "Vierling, Elizabeth", "weight": 1.0}, {"source": "Cheung, Alice Y", "target": "Soares, Andre", "weight": 1.0}, {"source": "Wu, HenMing", "target": "Wang, Dong", "weight": 1.0}, {"source": "Wang, Dong", "target": "Kim, Minsoo", "weight": 1.0}, {"source": "Vierling, Elizabeth", "target": "Kim, Minsoo", "weight": 7.0}, {"source": "Caicedo, Ana L", "target": "Ma, LiJun", "weight": 1.0}, {"source": "Caicedo, Ana L", "target": "Barnett, Jacob R", "weight": 3.0}, {"source": "Ma, LiJun", "target": "Wick, Robert L", "weight": 3.0}, {"source": "Ma, LiJun", "target": "Mafu, Sibongile", "weight": 1.0}, {"source": "McClements, David Julian", "target": "Xiao, Hang", "weight": 79.0}]};
+
+console.log("First edge:", graphData.links[0]);
+console.log("Nodes:", graphData.nodes.length);
+console.log("Edges:", graphData.links.length);
+
+const Graph = ForceGraph3D()(
+    document.getElementById("graph")
+);
+
+Graph
+    .nodeId("id")
+    .linkSource("source")
+    .linkTarget("target")
+    .graphData(graphData)
+    .backgroundColor("#FFFFFF")
+    .showNavInfo(false)
+
+    // Node appearance
+    .nodeColor(() => "#073763")
+    .nodeVal(node =>
+        1.5 + Math.sqrt(node.strength + 1) * 0.45
+    )
+
+    // Edge appearance
+    .linkColor(() => "#648FC9")
+    .linkOpacity(0.7)
+    .linkWidth(link =>
+        0.5 + Math.sqrt(Number(link.weight) || 1) * 0.35
+    );
+
+</script>
+
+</body>
+</html>
+

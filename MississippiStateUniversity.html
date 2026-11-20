@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+
+<title>Mississippi_adjacency</title>
+
+<style>
+
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #FFFFFF;
+}
+
+graph {
+    width: 100%;
+    height: 100%;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="graph"></div>
+
+
+<!-- 3D force graph -->
+<script src="https://cdn.jsdelivr.net/npm/3d-force-graph"></script>
+
+<script type="module">
+
+import ForceGraph3D
+    from "https://cdn.jsdelivr.net/npm/3d-force-graph/+esm";
+
+const graphData = {"nodes": [{"id": "Reddy, Kambham Raja", "name": "Reddy, Kambham Raja", "degree": 13, "strength": 80.0}, {"id": "Sah, Saroj Kumar", "name": "Sah, Saroj Kumar", "degree": 4, "strength": 19.0}, {"id": "Tseng, Te Ming", "name": "Tseng, Te Ming", "degree": 10, "strength": 13.0}, {"id": "Klink, Vincent P", "name": "Klink, Vincent P", "degree": 4, "strength": 8.0}, {"id": "Popescu, George V", "name": "Popescu, George V", "degree": 7, "strength": 30.0}, {"id": "Li, Jiaxu", "name": "Li, Jiaxu", "degree": 5, "strength": 20.0}, {"id": "Barickman, T Casey", "name": "Barickman, T Casey", "degree": 10, "strength": 28.0}, {"id": "Popescu, Sorina C", "name": "Popescu, Sorina C", "degree": 4, "strength": 22.0}, {"id": "Bheemanahalli, Raju", "name": "Bheemanahalli, Raju", "degree": 8, "strength": 59.0}, {"id": "Li, Tongyin", "name": "Li, Tongyin", "degree": 3, "strength": 26.0}, {"id": "Bi, Guihong", "name": "Bi, Guihong", "degree": 4, "strength": 27.0}, {"id": "McCurdy, James D", "name": "McCurdy, James D", "degree": 5, "strength": 15.0}, {"id": "TomasoPeterson, Maria", "name": "TomasoPeterson, Maria", "degree": 5, "strength": 8.0}, {"id": "Meyers, Stephen L", "name": "Meyers, Stephen L", "degree": 5, "strength": 8.0}, {"id": "Dhillon, Jagmandeep", "name": "Dhillon, Jagmandeep", "degree": 7, "strength": 30.0}, {"id": "Shanmugam, Shankar Ganapathi", "name": "Shanmugam, Shankar Ganapathi", "degree": 2, "strength": 3.0}, {"id": "Kaur, Gurpreet", "name": "Kaur, Gurpreet", "degree": 8, "strength": 59.0}, {"id": "Singh, Gurbir", "name": "Singh, Gurbir", "degree": 9, "strength": 51.0}, {"id": "Bond, Jason A", "name": "Bond, Jason A", "degree": 14, "strength": 76.0}, {"id": "Bowman, Hunter D", "name": "Bowman, Hunter D", "degree": 4, "strength": 10.0}, {"id": "Reynolds, Daniel B", "name": "Reynolds, Daniel B", "degree": 10, "strength": 49.0}, {"id": "Peterson, Daniel G", "name": "Peterson, Daniel G", "degree": 9, "strength": 23.0}, {"id": "Catchot, Angus L", "name": "Catchot, Angus L", "degree": 6, "strength": 79.0}, {"id": "Dodds, Darrin M", "name": "Dodds, Darrin M", "degree": 11, "strength": 64.0}, {"id": "Lawrence, Benjamin H", "name": "Lawrence, Benjamin H", "degree": 4, "strength": 24.0}, {"id": "Ferguson, J Connor", "name": "Ferguson, J Connor", "degree": 5, "strength": 6.0}, {"id": "McCoy, Justin", "name": "McCoy, Justin", "degree": 6, "strength": 9.0}, {"id": "Orlowski, John M", "name": "Orlowski, John M", "degree": 4, "strength": 19.0}, {"id": "de Avila, Luis Antonio", "name": "de Avila, Luis Antonio", "degree": 1, "strength": 1.0}, {"id": "Harvey, Lorin M", "name": "Harvey, Lorin M", "degree": 2, "strength": 3.0}, {"id": "Chang, Sam K C", "name": "Chang, Sam K C", "degree": 3, "strength": 4.0}, {"id": "Lu, ShiEn", "name": "Lu, ShiEn", "degree": 2, "strength": 4.0}, {"id": "Peng, Zhaohua", "name": "Peng, Zhaohua", "degree": 2, "strength": 2.0}, {"id": "QuintanaAshwell, Nicolas", "name": "QuintanaAshwell, Nicolas", "degree": 3, "strength": 12.0}, {"id": "Bararpour, Taghi", "name": "Bararpour, Taghi", "degree": 9, "strength": 32.0}, {"id": "Crow, Whitney D", "name": "Crow, Whitney D", "degree": 4, "strength": 64.0}, {"id": "Gore, J", "name": "Gore, J", "degree": 1, "strength": 8.0}, {"id": "Dong, Hongxu", "name": "Dong, Hongxu", "degree": 1, "strength": 3.0}, {"id": "Shafqat, Waqar", "name": "Shafqat, Waqar", "degree": 1, "strength": 1.0}, {"id": "Shan, Xueyan", "name": "Shan, Xueyan", "degree": 1, "strength": 1.0}], "links": [{"source": "Reddy, Kambham Raja", "target": "Sah, Saroj Kumar", "weight": 8.0}, {"source": "Reddy, Kambham Raja", "target": "Tseng, Te Ming", "weight": 1.0}, {"source": "Reddy, Kambham Raja", "target": "Klink, Vincent P", "weight": 2.0}, {"source": "Reddy, Kambham Raja", "target": "Popescu, George V", "weight": 3.0}, {"source": "Reddy, Kambham Raja", "target": "Li, Jiaxu", "weight": 7.0}, {"source": "Reddy, Kambham Raja", "target": "Barickman, T Casey", "weight": 8.0}, {"source": "Reddy, Kambham Raja", "target": "Popescu, Sorina C", "weight": 1.0}, {"source": "Reddy, Kambham Raja", "target": "Bheemanahalli, Raju", "weight": 41.0}, {"source": "Reddy, Kambham Raja", "target": "Meyers, Stephen L", "weight": 3.0}, {"source": "Reddy, Kambham Raja", "target": "Dhillon, Jagmandeep", "weight": 3.0}, {"source": "Reddy, Kambham Raja", "target": "Bond, Jason A", "weight": 1.0}, {"source": "Reddy, Kambham Raja", "target": "Dodds, Darrin M", "weight": 1.0}, {"source": "Reddy, Kambham Raja", "target": "Peng, Zhaohua", "weight": 1.0}, {"source": "Sah, Saroj Kumar", "target": "Klink, Vincent P", "weight": 2.0}, {"source": "Sah, Saroj Kumar", "target": "Popescu, George V", "weight": 2.0}, {"source": "Sah, Saroj Kumar", "target": "Li, Jiaxu", "weight": 7.0}, {"source": "Tseng, Te Ming", "target": "Barickman, T Casey", "weight": 1.0}, {"source": "Tseng, Te Ming", "target": "McCurdy, James D", "weight": 4.0}, {"source": "Tseng, Te Ming", "target": "TomasoPeterson, Maria", "weight": 1.0}, {"source": "Tseng, Te Ming", "target": "Meyers, Stephen L", "weight": 1.0}, {"source": "Tseng, Te Ming", "target": "Reynolds, Daniel B", "weight": 1.0}, {"source": "Tseng, Te Ming", "target": "Peterson, Daniel G", "weight": 1.0}, {"source": "Tseng, Te Ming", "target": "Ferguson, J Connor", "weight": 1.0}, {"source": "Tseng, Te Ming", "target": "de Avila, Luis Antonio", "weight": 1.0}, {"source": "Tseng, Te Ming", "target": "Bararpour, Taghi", "weight": 1.0}, {"source": "Klink, Vincent P", "target": "Popescu, George V", "weight": 2.0}, {"source": "Klink, Vincent P", "target": "Li, Jiaxu", "weight": 2.0}, {"source": "Popescu, George V", "target": "Li, Jiaxu", "weight": 2.0}, {"source": "Popescu, George V", "target": "Barickman, T Casey", "weight": 3.0}, {"source": "Popescu, George V", "target": "Popescu, Sorina C", "weight": 17.0}, {"source": "Popescu, George V", "target": "TomasoPeterson, Maria", "weight": 1.0}, {"source": "Li, Jiaxu", "target": "Chang, Sam K C", "weight": 2.0}, {"source": "Barickman, T Casey", "target": "Popescu, Sorina C", "weight": 3.0}, {"source": "Barickman, T Casey", "target": "Bheemanahalli, Raju", "weight": 3.0}, {"source": "Barickman, T Casey", "target": "Li, Tongyin", "weight": 3.0}, {"source": "Barickman, T Casey", "target": "Bi, Guihong", "weight": 2.0}, {"source": "Barickman, T Casey", "target": "McCurdy, James D", "weight": 3.0}, {"source": "Barickman, T Casey", "target": "TomasoPeterson, Maria", "weight": 1.0}, {"source": "Barickman, T Casey", "target": "Meyers, Stephen L", "weight": 1.0}, {"source": "Popescu, Sorina C", "target": "TomasoPeterson, Maria", "weight": 1.0}, {"source": "Bheemanahalli, Raju", "target": "Li, Tongyin", "weight": 1.0}, {"source": "Bheemanahalli, Raju", "target": "Meyers, Stephen L", "weight": 2.0}, {"source": "Bheemanahalli, Raju", "target": "Dhillon, Jagmandeep", "weight": 9.0}, {"source": "Bheemanahalli, Raju", "target": "Shanmugam, Shankar Ganapathi", "weight": 1.0}, {"source": "Bheemanahalli, Raju", "target": "Kaur, Gurpreet", "weight": 1.0}, {"source": "Bheemanahalli, Raju", "target": "Singh, Gurbir", "weight": 1.0}, {"source": "Li, Tongyin", "target": "Bi, Guihong", "weight": 22.0}, {"source": "Bi, Guihong", "target": "Reynolds, Daniel B", "weight": 1.0}, {"source": "Bi, Guihong", "target": "Harvey, Lorin M", "weight": 2.0}, {"source": "McCurdy, James D", "target": "TomasoPeterson, Maria", "weight": 4.0}, {"source": "McCurdy, James D", "target": "Ferguson, J Connor", "weight": 1.0}, {"source": "McCurdy, James D", "target": "Dong, Hongxu", "weight": 3.0}, {"source": "Meyers, Stephen L", "target": "Harvey, Lorin M", "weight": 1.0}, {"source": "Dhillon, Jagmandeep", "target": "Kaur, Gurpreet", "weight": 6.0}, {"source": "Dhillon, Jagmandeep", "target": "Singh, Gurbir", "weight": 8.0}, {"source": "Dhillon, Jagmandeep", "target": "Bond, Jason A", "weight": 1.0}, {"source": "Dhillon, Jagmandeep", "target": "Dodds, Darrin M", "weight": 2.0}, {"source": "Dhillon, Jagmandeep", "target": "McCoy, Justin", "weight": 1.0}, {"source": "Shanmugam, Shankar Ganapathi", "target": "Peterson, Daniel G", "weight": 2.0}, {"source": "Kaur, Gurpreet", "target": "Singh, Gurbir", "weight": 29.0}, {"source": "Kaur, Gurpreet", "target": "Bond, Jason A", "weight": 3.0}, {"source": "Kaur, Gurpreet", "target": "McCoy, Justin", "weight": 1.0}, {"source": "Kaur, Gurpreet", "target": "Orlowski, John M", "weight": 10.0}, {"source": "Kaur, Gurpreet", "target": "QuintanaAshwell, Nicolas", "weight": 6.0}, {"source": "Kaur, Gurpreet", "target": "Bararpour, Taghi", "weight": 3.0}, {"source": "Singh, Gurbir", "target": "Bond, Jason A", "weight": 1.0}, {"source": "Singh, Gurbir", "target": "Lawrence, Benjamin H", "weight": 1.0}, {"source": "Singh, Gurbir", "target": "McCoy, Justin", "weight": 1.0}, {"source": "Singh, Gurbir", "target": "Orlowski, John M", "weight": 4.0}, {"source": "Singh, Gurbir", "target": "QuintanaAshwell, Nicolas", "weight": 5.0}, {"source": "Singh, Gurbir", "target": "Bararpour, Taghi", "weight": 1.0}, {"source": "Bond, Jason A", "target": "Bowman, Hunter D", "weight": 6.0}, {"source": "Bond, Jason A", "target": "Reynolds, Daniel B", "weight": 12.0}, {"source": "Bond, Jason A", "target": "Peterson, Daniel G", "weight": 6.0}, {"source": "Bond, Jason A", "target": "Catchot, Angus L", "weight": 4.0}, {"source": "Bond, Jason A", "target": "Dodds, Darrin M", "weight": 10.0}, {"source": "Bond, Jason A", "target": "Lawrence, Benjamin H", "weight": 13.0}, {"source": "Bond, Jason A", "target": "Ferguson, J Connor", "weight": 1.0}, {"source": "Bond, Jason A", "target": "McCoy, Justin", "weight": 2.0}, {"source": "Bond, Jason A", "target": "Orlowski, John M", "weight": 4.0}, {"source": "Bond, Jason A", "target": "Bararpour, Taghi", "weight": 12.0}, {"source": "Bowman, Hunter D", "target": "Reynolds, Daniel B", "weight": 1.0}, {"source": "Bowman, Hunter D", "target": "Dodds, Darrin M", "weight": 2.0}, {"source": "Bowman, Hunter D", "target": "Bararpour, Taghi", "weight": 1.0}, {"source": "Reynolds, Daniel B", "target": "Peterson, Daniel G", "weight": 3.0}, {"source": "Reynolds, Daniel B", "target": "Catchot, Angus L", "weight": 5.0}, {"source": "Reynolds, Daniel B", "target": "Dodds, Darrin M", "weight": 17.0}, {"source": "Reynolds, Daniel B", "target": "Lawrence, Benjamin H", "weight": 4.0}, {"source": "Reynolds, Daniel B", "target": "Ferguson, J Connor", "weight": 2.0}, {"source": "Reynolds, Daniel B", "target": "Bararpour, Taghi", "weight": 3.0}, {"source": "Peterson, Daniel G", "target": "Catchot, Angus L", "weight": 3.0}, {"source": "Peterson, Daniel G", "target": "Dodds, Darrin M", "weight": 3.0}, {"source": "Peterson, Daniel G", "target": "Lu, ShiEn", "weight": 3.0}, {"source": "Peterson, Daniel G", "target": "Shafqat, Waqar", "weight": 1.0}, {"source": "Peterson, Daniel G", "target": "Shan, Xueyan", "weight": 1.0}, {"source": "Catchot, Angus L", "target": "Dodds, Darrin M", "weight": 17.0}, {"source": "Catchot, Angus L", "target": "Orlowski, John M", "weight": 1.0}, {"source": "Catchot, Angus L", "target": "Crow, Whitney D", "weight": 49.0}, {"source": "Dodds, Darrin M", "target": "Ferguson, J Connor", "weight": 1.0}, {"source": "Dodds, Darrin M", "target": "McCoy, Justin", "weight": 2.0}, {"source": "Dodds, Darrin M", "target": "Bararpour, Taghi", "weight": 3.0}, {"source": "Dodds, Darrin M", "target": "Crow, Whitney D", "weight": 6.0}, {"source": "Lawrence, Benjamin H", "target": "Bararpour, Taghi", "weight": 6.0}, {"source": "McCoy, Justin", "target": "Bararpour, Taghi", "weight": 2.0}, {"source": "Chang, Sam K C", "target": "Lu, ShiEn", "weight": 1.0}, {"source": "Chang, Sam K C", "target": "Peng, Zhaohua", "weight": 1.0}, {"source": "QuintanaAshwell, Nicolas", "target": "Crow, Whitney D", "weight": 1.0}, {"source": "Crow, Whitney D", "target": "Gore, J", "weight": 8.0}]};
+
+console.log("First edge:", graphData.links[0]);
+console.log("Nodes:", graphData.nodes.length);
+console.log("Edges:", graphData.links.length);
+
+const Graph = ForceGraph3D()(
+    document.getElementById("graph")
+);
+
+Graph
+    .nodeId("id")
+    .linkSource("source")
+    .linkTarget("target")
+    .graphData(graphData)
+    .backgroundColor("#FFFFFF")
+    .showNavInfo(false)
+
+    // Node appearance
+    .nodeColor(() => "#073763")
+    .nodeVal(node =>
+        1.5 + Math.sqrt(node.strength + 1) * 0.45
+    )
+
+    // Edge appearance
+    .linkColor(() => "#648FC9")
+    .linkOpacity(0.7)
+    .linkWidth(link =>
+        0.5 + Math.sqrt(Number(link.weight) || 1) * 0.35
+    );
+
+</script>
+
+</body>
+</html>
+

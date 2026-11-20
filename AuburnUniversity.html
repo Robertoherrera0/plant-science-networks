@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+
+<title>Auburn_adjacency</title>
+
+<style>
+
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #FFFFFF;
+}
+
+graph {
+    width: 100%;
+    height: 100%;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="graph"></div>
+
+
+<!-- 3D force graph -->
+<script src="https://cdn.jsdelivr.net/npm/3d-force-graph"></script>
+
+<script type="module">
+
+import ForceGraph3D
+    from "https://cdn.jsdelivr.net/npm/3d-force-graph/+esm";
+
+const graphData = {"nodes": [{"id": "McElroy, Joseph Scott", "name": "McElroy, Joseph Scott", "degree": 8, "strength": 19.0}, {"id": "Zhang, Hui", "name": "Zhang, Hui", "degree": 2, "strength": 16.0}, {"id": "Rashotte, Aaron M", "name": "Rashotte, Aaron M", "degree": 4, "strength": 7.0}, {"id": "SanzSaez, Alvaro", "name": "SanzSaez, Alvaro", "degree": 7, "strength": 26.0}, {"id": "Park, SangWook", "name": "Park, SangWook", "degree": 2, "strength": 4.0}, {"id": "Sikora, Edward J", "name": "Sikora, Edward J", "degree": 10, "strength": 17.0}, {"id": "Chen, Charles Y", "name": "Chen, Charles Y", "degree": 7, "strength": 30.0}, {"id": "Liles, Mark R", "name": "Liles, Mark R", "degree": 9, "strength": 24.0}, {"id": "Feng, Yucheng", "name": "Feng, Yucheng", "degree": 9, "strength": 19.0}, {"id": "Li, Xiao", "name": "Li, Xiao", "degree": 5, "strength": 9.0}, {"id": "Jacobson, Alana L", "name": "Jacobson, Alana L", "degree": 8, "strength": 13.0}, {"id": "De La Fuente, Leonardo", "name": "De La Fuente, Leonardo", "degree": 3, "strength": 6.0}, {"id": "Potnis, Neha", "name": "Potnis, Neha", "degree": 5, "strength": 17.0}, {"id": "Kloepper, Joseph W", "name": "Kloepper, Joseph W", "degree": 11, "strength": 41.0}, {"id": "Lawrence, Kathy S", "name": "Lawrence, Kathy S", "degree": 14, "strength": 26.0}, {"id": "Newman, Molli M", "name": "Newman, Molli M", "degree": 3, "strength": 15.0}, {"id": "SalazarGutierrez, Melba R", "name": "SalazarGutierrez, Melba R", "degree": 3, "strength": 4.0}, {"id": "Noel, Zachary A", "name": "Noel, Zachary A", "degree": 2, "strength": 2.0}, {"id": "Locy, Robert D", "name": "Locy, Robert D", "degree": 2, "strength": 3.0}, {"id": "Shannon, Dennis A", "name": "Shannon, Dennis A", "degree": 1, "strength": 1.0}, {"id": "Leisner, Courtney P", "name": "Leisner, Courtney P", "degree": 4, "strength": 16.0}, {"id": "da Silva, Andre Luiz Biscaia Ribeiro", "name": "da Silva, Andre Luiz Biscaia Ribeiro", "degree": 4, "strength": 10.0}, {"id": "Aspinwall, Michael J", "name": "Aspinwall, Michael J", "degree": 2, "strength": 8.0}, {"id": "Chieppa, Jeff", "name": "Chieppa, Jeff", "degree": 2, "strength": 8.0}, {"id": "Bashan, Yoav", "name": "Bashan, Yoav", "degree": 2, "strength": 27.0}, {"id": "deBashan, Luz E", "name": "deBashan, Luz E", "degree": 5, "strength": 32.0}, {"id": "Chappelka, Arthur H", "name": "Chappelka, Arthur H", "degree": 1, "strength": 1.0}, {"id": "Coleman, Jeffrey J", "name": "Coleman, Jeffrey J", "degree": 4, "strength": 4.0}, {"id": "Boyd, Adam P", "name": "Boyd, Adam P", "degree": 1, "strength": 2.0}, {"id": "Calvo, Pamela", "name": "Calvo, Pamela", "degree": 3, "strength": 7.0}, {"id": "Zebelo, Simon", "name": "Zebelo, Simon", "degree": 3, "strength": 10.0}, {"id": "Fadamiro, Henry Y", "name": "Fadamiro, Henry Y", "degree": 6, "strength": 18.0}, {"id": "Murphy, John F", "name": "Murphy, John F", "degree": 3, "strength": 3.0}, {"id": "Howe, Julie A", "name": "Howe, Julie A", "degree": 1, "strength": 1.0}, {"id": "Harkess, Alex", "name": "Harkess, Alex", "degree": 2, "strength": 2.0}, {"id": "Kumari, Annu", "name": "Kumari, Annu", "degree": 2, "strength": 4.0}, {"id": "Rodrigues, Camila", "name": "Rodrigues, Camila", "degree": 3, "strength": 9.0}, {"id": "Joseph, Mikerly Mistral", "name": "Joseph, Mikerly Mistral", "degree": 1, "strength": 3.0}, {"id": "Koebernick, JC", "name": "Koebernick, JC", "degree": 1, "strength": 1.0}, {"id": "StrayerScherer, Amanda L", "name": "StrayerScherer, Amanda L", "degree": 1, "strength": 1.0}], "links": [{"source": "McElroy, Joseph Scott", "target": "Zhang, Hui", "weight": 6.0}, {"source": "McElroy, Joseph Scott", "target": "Chen, Charles Y", "weight": 2.0}, {"source": "McElroy, Joseph Scott", "target": "Feng, Yucheng", "weight": 1.0}, {"source": "McElroy, Joseph Scott", "target": "Li, Xiao", "weight": 3.0}, {"source": "McElroy, Joseph Scott", "target": "Coleman, Jeffrey J", "weight": 1.0}, {"source": "McElroy, Joseph Scott", "target": "Boyd, Adam P", "weight": 2.0}, {"source": "McElroy, Joseph Scott", "target": "Harkess, Alex", "weight": 1.0}, {"source": "McElroy, Joseph Scott", "target": "Joseph, Mikerly Mistral", "weight": 3.0}, {"source": "Zhang, Hui", "target": "Chen, Charles Y", "weight": 10.0}, {"source": "Rashotte, Aaron M", "target": "Lawrence, Kathy S", "weight": 1.0}, {"source": "Rashotte, Aaron M", "target": "Locy, Robert D", "weight": 2.0}, {"source": "Rashotte, Aaron M", "target": "Leisner, Courtney P", "weight": 3.0}, {"source": "Rashotte, Aaron M", "target": "Murphy, John F", "weight": 1.0}, {"source": "SanzSaez, Alvaro", "target": "Chen, Charles Y", "weight": 8.0}, {"source": "SanzSaez, Alvaro", "target": "Liles, Mark R", "weight": 2.0}, {"source": "SanzSaez, Alvaro", "target": "Feng, Yucheng", "weight": 3.0}, {"source": "SanzSaez, Alvaro", "target": "Jacobson, Alana L", "weight": 1.0}, {"source": "SanzSaez, Alvaro", "target": "Potnis, Neha", "weight": 3.0}, {"source": "SanzSaez, Alvaro", "target": "Leisner, Courtney P", "weight": 8.0}, {"source": "SanzSaez, Alvaro", "target": "Aspinwall, Michael J", "weight": 1.0}, {"source": "Park, SangWook", "target": "Sikora, Edward J", "weight": 1.0}, {"source": "Park, SangWook", "target": "Lawrence, Kathy S", "weight": 3.0}, {"source": "Sikora, Edward J", "target": "Liles, Mark R", "weight": 1.0}, {"source": "Sikora, Edward J", "target": "Jacobson, Alana L", "weight": 3.0}, {"source": "Sikora, Edward J", "target": "Potnis, Neha", "weight": 4.0}, {"source": "Sikora, Edward J", "target": "Kloepper, Joseph W", "weight": 1.0}, {"source": "Sikora, Edward J", "target": "Lawrence, Kathy S", "weight": 3.0}, {"source": "Sikora, Edward J", "target": "da Silva, Andre Luiz Biscaia Ribeiro", "weight": 1.0}, {"source": "Sikora, Edward J", "target": "Murphy, John F", "weight": 1.0}, {"source": "Sikora, Edward J", "target": "Rodrigues, Camila", "weight": 1.0}, {"source": "Sikora, Edward J", "target": "StrayerScherer, Amanda L", "weight": 1.0}, {"source": "Chen, Charles Y", "target": "Liles, Mark R", "weight": 1.0}, {"source": "Chen, Charles Y", "target": "Feng, Yucheng", "weight": 5.0}, {"source": "Chen, Charles Y", "target": "Li, Xiao", "weight": 3.0}, {"source": "Chen, Charles Y", "target": "Jacobson, Alana L", "weight": 1.0}, {"source": "Liles, Mark R", "target": "Feng, Yucheng", "weight": 4.0}, {"source": "Liles, Mark R", "target": "Kloepper, Joseph W", "weight": 6.0}, {"source": "Liles, Mark R", "target": "Lawrence, Kathy S", "weight": 1.0}, {"source": "Liles, Mark R", "target": "Newman, Molli M", "weight": 6.0}, {"source": "Liles, Mark R", "target": "Noel, Zachary A", "weight": 1.0}, {"source": "Liles, Mark R", "target": "deBashan, Luz E", "weight": 2.0}, {"source": "Feng, Yucheng", "target": "Li, Xiao", "weight": 1.0}, {"source": "Feng, Yucheng", "target": "Kloepper, Joseph W", "weight": 1.0}, {"source": "Feng, Yucheng", "target": "Lawrence, Kathy S", "weight": 1.0}, {"source": "Feng, Yucheng", "target": "deBashan, Luz E", "weight": 2.0}, {"source": "Feng, Yucheng", "target": "Howe, Julie A", "weight": 1.0}, {"source": "Li, Xiao", "target": "Jacobson, Alana L", "weight": 1.0}, {"source": "Li, Xiao", "target": "Harkess, Alex", "weight": 1.0}, {"source": "Jacobson, Alana L", "target": "da Silva, Andre Luiz Biscaia Ribeiro", "weight": 1.0}, {"source": "Jacobson, Alana L", "target": "Fadamiro, Henry Y", "weight": 2.0}, {"source": "Jacobson, Alana L", "target": "Kumari, Annu", "weight": 3.0}, {"source": "Jacobson, Alana L", "target": "Rodrigues, Camila", "weight": 1.0}, {"source": "De La Fuente, Leonardo", "target": "Potnis, Neha", "weight": 4.0}, {"source": "De La Fuente, Leonardo", "target": "Kloepper, Joseph W", "weight": 1.0}, {"source": "De La Fuente, Leonardo", "target": "Coleman, Jeffrey J", "weight": 1.0}, {"source": "Potnis, Neha", "target": "Lawrence, Kathy S", "weight": 2.0}, {"source": "Potnis, Neha", "target": "Leisner, Courtney P", "weight": 4.0}, {"source": "Kloepper, Joseph W", "target": "Lawrence, Kathy S", "weight": 4.0}, {"source": "Kloepper, Joseph W", "target": "Newman, Molli M", "weight": 5.0}, {"source": "Kloepper, Joseph W", "target": "Bashan, Yoav", "weight": 4.0}, {"source": "Kloepper, Joseph W", "target": "deBashan, Luz E", "weight": 4.0}, {"source": "Kloepper, Joseph W", "target": "Calvo, Pamela", "weight": 5.0}, {"source": "Kloepper, Joseph W", "target": "Zebelo, Simon", "weight": 3.0}, {"source": "Kloepper, Joseph W", "target": "Fadamiro, Henry Y", "weight": 7.0}, {"source": "Lawrence, Kathy S", "target": "Newman, Molli M", "weight": 4.0}, {"source": "Lawrence, Kathy S", "target": "SalazarGutierrez, Melba R", "weight": 2.0}, {"source": "Lawrence, Kathy S", "target": "Noel, Zachary A", "weight": 1.0}, {"source": "Lawrence, Kathy S", "target": "Locy, Robert D", "weight": 1.0}, {"source": "Lawrence, Kathy S", "target": "Shannon, Dennis A", "weight": 1.0}, {"source": "Lawrence, Kathy S", "target": "Coleman, Jeffrey J", "weight": 1.0}, {"source": "Lawrence, Kathy S", "target": "Fadamiro, Henry Y", "weight": 1.0}, {"source": "SalazarGutierrez, Melba R", "target": "Leisner, Courtney P", "weight": 1.0}, {"source": "SalazarGutierrez, Melba R", "target": "da Silva, Andre Luiz Biscaia Ribeiro", "weight": 1.0}, {"source": "da Silva, Andre Luiz Biscaia Ribeiro", "target": "Rodrigues, Camila", "weight": 7.0}, {"source": "Aspinwall, Michael J", "target": "Chieppa, Jeff", "weight": 7.0}, {"source": "Chieppa, Jeff", "target": "Chappelka, Arthur H", "weight": 1.0}, {"source": "Bashan, Yoav", "target": "deBashan, Luz E", "weight": 23.0}, {"source": "deBashan, Luz E", "target": "Coleman, Jeffrey J", "weight": 1.0}, {"source": "Calvo, Pamela", "target": "Zebelo, Simon", "weight": 1.0}, {"source": "Calvo, Pamela", "target": "Fadamiro, Henry Y", "weight": 1.0}, {"source": "Zebelo, Simon", "target": "Fadamiro, Henry Y", "weight": 6.0}, {"source": "Fadamiro, Henry Y", "target": "Murphy, John F", "weight": 1.0}, {"source": "Kumari, Annu", "target": "Koebernick, JC", "weight": 1.0}]};
+
+console.log("First edge:", graphData.links[0]);
+console.log("Nodes:", graphData.nodes.length);
+console.log("Edges:", graphData.links.length);
+
+const Graph = ForceGraph3D()(
+    document.getElementById("graph")
+);
+
+Graph
+    .nodeId("id")
+    .linkSource("source")
+    .linkTarget("target")
+    .graphData(graphData)
+    .backgroundColor("#FFFFFF")
+    .showNavInfo(false)
+
+    // Node appearance
+    .nodeColor(() => "#073763")
+    .nodeVal(node =>
+        1.5 + Math.sqrt(node.strength + 1) * 0.45
+    )
+
+    // Edge appearance
+    .linkColor(() => "#648FC9")
+    .linkOpacity(0.7)
+    .linkWidth(link =>
+        0.5 + Math.sqrt(Number(link.weight) || 1) * 0.35
+    );
+
+</script>
+
+</body>
+</html>
+

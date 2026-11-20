@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+
+<title>Wyoming_adjacency</title>
+
+<style>
+
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #FFFFFF;
+}
+
+graph {
+    width: 100%;
+    height: 100%;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="graph"></div>
+
+
+<!-- 3D force graph -->
+<script src="https://cdn.jsdelivr.net/npm/3d-force-graph"></script>
+
+<script type="module">
+
+import ForceGraph3D
+    from "https://cdn.jsdelivr.net/npm/3d-force-graph/+esm";
+
+const graphData = {"nodes": [{"id": "Weinig, Cynthia", "name": "Weinig, Cynthia", "degree": 5, "strength": 27.0}, {"id": "Guadagno, Carmela Rosaria", "name": "Guadagno, Carmela Rosaria", "degree": 3, "strength": 10.0}, {"id": "Salmela, Matti J", "name": "Salmela, Matti J", "degree": 2, "strength": 7.0}, {"id": "Kniss, Andrew R", "name": "Kniss, Andrew R", "degree": 1, "strength": 2.0}, {"id": "Laughlin, Daniel C", "name": "Laughlin, Daniel C", "degree": 3, "strength": 5.0}, {"id": "Wilcox, Kevin R", "name": "Wilcox, Kevin R", "degree": 1, "strength": 1.0}, {"id": "Pappas, Gregory S", "name": "Pappas, Gregory S", "degree": 1, "strength": 1.0}, {"id": "Baker, Robert L", "name": "Baker, Robert L", "degree": 2, "strength": 10.0}, {"id": "Harrison, Joshua G", "name": "Harrison, Joshua G", "degree": 2, "strength": 5.0}], "links": [{"source": "Weinig, Cynthia", "target": "Guadagno, Carmela Rosaria", "weight": 8.0}, {"source": "Weinig, Cynthia", "target": "Salmela, Matti J", "weight": 6.0}, {"source": "Weinig, Cynthia", "target": "Kniss, Andrew R", "weight": 2.0}, {"source": "Weinig, Cynthia", "target": "Baker, Robert L", "weight": 9.0}, {"source": "Weinig, Cynthia", "target": "Harrison, Joshua G", "weight": 2.0}, {"source": "Guadagno, Carmela Rosaria", "target": "Salmela, Matti J", "weight": 1.0}, {"source": "Guadagno, Carmela Rosaria", "target": "Baker, Robert L", "weight": 1.0}, {"source": "Laughlin, Daniel C", "target": "Wilcox, Kevin R", "weight": 1.0}, {"source": "Laughlin, Daniel C", "target": "Pappas, Gregory S", "weight": 1.0}, {"source": "Laughlin, Daniel C", "target": "Harrison, Joshua G", "weight": 3.0}]};
+
+console.log("First edge:", graphData.links[0]);
+console.log("Nodes:", graphData.nodes.length);
+console.log("Edges:", graphData.links.length);
+
+const Graph = ForceGraph3D()(
+    document.getElementById("graph")
+);
+
+Graph
+    .nodeId("id")
+    .linkSource("source")
+    .linkTarget("target")
+    .graphData(graphData)
+    .backgroundColor("#FFFFFF")
+    .showNavInfo(false)
+
+    // Node appearance
+    .nodeColor(() => "#073763")
+    .nodeVal(node =>
+        1.5 + Math.sqrt(node.strength + 1) * 0.45
+    )
+
+    // Edge appearance
+    .linkColor(() => "#648FC9")
+    .linkOpacity(0.7)
+    .linkWidth(link =>
+        0.5 + Math.sqrt(Number(link.weight) || 1) * 0.35
+    );
+
+</script>
+
+</body>
+</html>
+

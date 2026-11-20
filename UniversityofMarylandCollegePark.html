@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+
+<title>Maryland_adjacency</title>
+
+<style>
+
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #FFFFFF;
+}
+
+graph {
+    width: 100%;
+    height: 100%;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="graph"></div>
+
+
+<!-- 3D force graph -->
+<script src="https://cdn.jsdelivr.net/npm/3d-force-graph"></script>
+
+<script type="module">
+
+import ForceGraph3D
+    from "https://cdn.jsdelivr.net/npm/3d-force-graph/+esm";
+
+const graphData = {"nodes": [{"id": "Peer, Wendy Ann", "name": "Peer, Wendy Ann", "degree": 3, "strength": 15.0}, {"id": "Tayengwa, Reuben", "name": "Tayengwa, Reuben", "degree": 2, "strength": 7.0}, {"id": "Tiwari, Vijay K", "name": "Tiwari, Vijay K", "degree": 4, "strength": 32.0}, {"id": "Culver, James N", "name": "Culver, James N", "degree": 1, "strength": 3.0}, {"id": "Xiao, Shunyuan", "name": "Xiao, Shunyuan", "degree": 3, "strength": 5.0}, {"id": "Hu, Mengjun", "name": "Hu, Mengjun", "degree": 2, "strength": 2.0}, {"id": "Swett, Cassandra L", "name": "Swett, Cassandra L", "degree": 1, "strength": 1.0}, {"id": "Coleman, Gary D", "name": "Coleman, Gary D", "degree": 6, "strength": 17.0}, {"id": "Pan, Changtian", "name": "Pan, Changtian", "degree": 2, "strength": 23.0}, {"id": "Qi, Yiping", "name": "Qi, Yiping", "degree": 7, "strength": 40.0}, {"id": "Rawat, Nidhi", "name": "Rawat, Nidhi", "degree": 5, "strength": 33.0}, {"id": "Murphy, Angus S", "name": "Murphy, Angus S", "degree": 6, "strength": 22.0}], "links": [{"source": "Peer, Wendy Ann", "target": "Murphy, Angus S", "weight": 11.0}, {"source": "Peer, Wendy Ann", "target": "Tayengwa, Reuben", "weight": 3.0}, {"source": "Peer, Wendy Ann", "target": "Coleman, Gary D", "weight": 1.0}, {"source": "Tayengwa, Reuben", "target": "Murphy, Angus S", "weight": 4.0}, {"source": "Tiwari, Vijay K", "target": "Qi, Yiping", "weight": 2.0}, {"source": "Tiwari, Vijay K", "target": "Rawat, Nidhi", "weight": 25.0}, {"source": "Tiwari, Vijay K", "target": "Murphy, Angus S", "weight": 2.0}, {"source": "Tiwari, Vijay K", "target": "Coleman, Gary D", "weight": 3.0}, {"source": "Culver, James N", "target": "Qi, Yiping", "weight": 3.0}, {"source": "Xiao, Shunyuan", "target": "Qi, Yiping", "weight": 3.0}, {"source": "Xiao, Shunyuan", "target": "Rawat, Nidhi", "weight": 1.0}, {"source": "Xiao, Shunyuan", "target": "Hu, Mengjun", "weight": 1.0}, {"source": "Hu, Mengjun", "target": "Swett, Cassandra L", "weight": 1.0}, {"source": "Coleman, Gary D", "target": "Qi, Yiping", "weight": 7.0}, {"source": "Coleman, Gary D", "target": "Rawat, Nidhi", "weight": 3.0}, {"source": "Coleman, Gary D", "target": "Murphy, Angus S", "weight": 2.0}, {"source": "Coleman, Gary D", "target": "Pan, Changtian", "weight": 1.0}, {"source": "Pan, Changtian", "target": "Qi, Yiping", "weight": 22.0}, {"source": "Qi, Yiping", "target": "Rawat, Nidhi", "weight": 2.0}, {"source": "Qi, Yiping", "target": "Murphy, Angus S", "weight": 1.0}, {"source": "Rawat, Nidhi", "target": "Murphy, Angus S", "weight": 2.0}]};
+
+console.log("First edge:", graphData.links[0]);
+console.log("Nodes:", graphData.nodes.length);
+console.log("Edges:", graphData.links.length);
+
+const Graph = ForceGraph3D()(
+    document.getElementById("graph")
+);
+
+Graph
+    .nodeId("id")
+    .linkSource("source")
+    .linkTarget("target")
+    .graphData(graphData)
+    .backgroundColor("#FFFFFF")
+    .showNavInfo(false)
+
+    // Node appearance
+    .nodeColor(() => "#073763")
+    .nodeVal(node =>
+        1.5 + Math.sqrt(node.strength + 1) * 0.45
+    )
+
+    // Edge appearance
+    .linkColor(() => "#648FC9")
+    .linkOpacity(0.7)
+    .linkWidth(link =>
+        0.5 + Math.sqrt(Number(link.weight) || 1) * 0.35
+    );
+
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+
+<title>MontanaState_adjacency</title>
+
+<style>
+
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #FFFFFF;
+}
+
+graph {
+    width: 100%;
+    height: 100%;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="graph"></div>
+
+
+<!-- 3D force graph -->
+<script src="https://cdn.jsdelivr.net/npm/3d-force-graph"></script>
+
+<script type="module">
+
+import ForceGraph3D
+    from "https://cdn.jsdelivr.net/npm/3d-force-graph/+esm";
+
+const graphData = {"nodes": [{"id": "Talbert, Luther E", "name": "Talbert, Luther E", "degree": 4, "strength": 24.0}, {"id": "Weaver, David K", "name": "Weaver, David K", "degree": 12, "strength": 46.0}, {"id": "Giroux, Michael J", "name": "Giroux, Michael J", "degree": 4, "strength": 28.0}, {"id": "Martin, John M", "name": "Martin, John M", "degree": 7, "strength": 39.0}, {"id": "Huang, Li", "name": "Huang, Li", "degree": 4, "strength": 7.0}, {"id": "Budak, Hikmet", "name": "Budak, Hikmet", "degree": 2, "strength": 5.0}, {"id": "Dyer, William E", "name": "Dyer, William E", "degree": 2, "strength": 2.0}, {"id": "Jha, Prashant", "name": "Jha, Prashant", "degree": 1, "strength": 1.0}, {"id": "Reddy, Gadi V P", "name": "Reddy, Gadi V P", "degree": 5, "strength": 15.0}, {"id": "Bruckner, P L", "name": "Bruckner, P L", "degree": 1, "strength": 6.0}, {"id": "Cook, Jason P", "name": "Cook, Jason P", "degree": 10, "strength": 34.0}, {"id": "Chen, Chengci", "name": "Chen, Chengci", "degree": 6, "strength": 21.0}, {"id": "Lu, Chaofu", "name": "Lu, Chaofu", "degree": 2, "strength": 3.0}, {"id": "Mohammed, Yesuf Assen", "name": "Mohammed, Yesuf Assen", "degree": 1, "strength": 14.0}, {"id": "Giroux, Mike", "name": "Giroux, Mike", "degree": 4, "strength": 4.0}, {"id": "Fischer, Andreas M", "name": "Fischer, Andreas M", "degree": 2, "strength": 4.0}, {"id": "Lachowiec, Jennifer", "name": "Lachowiec, Jennifer", "degree": 9, "strength": 15.0}, {"id": "Mendu, Venugopal", "name": "Mendu, Venugopal", "degree": 3, "strength": 3.0}, {"id": "Burkle, Laura A", "name": "Burkle, Laura A", "degree": 5, "strength": 9.0}, {"id": "Flenniken, Michelle L", "name": "Flenniken, Michelle L", "degree": 1, "strength": 1.0}, {"id": "Menalled, Fabian D", "name": "Menalled, Fabian D", "degree": 11, "strength": 48.0}, {"id": "Mangold, Jane M", "name": "Mangold, Jane M", "degree": 8, "strength": 24.0}, {"id": "Thum, Ryan A", "name": "Thum, Ryan A", "degree": 2, "strength": 8.0}, {"id": "Rew, Lisa J", "name": "Rew, Lisa J", "degree": 4, "strength": 26.0}, {"id": "Ulrich, Danielle E M", "name": "Ulrich, Danielle E M", "degree": 3, "strength": 5.0}, {"id": "Seipel, Tim", "name": "Seipel, Tim", "degree": 7, "strength": 31.0}, {"id": "Burrows, Mary E", "name": "Burrows, Mary E", "degree": 4, "strength": 7.0}, {"id": "Jensen, Joseph", "name": "Jensen, Joseph", "degree": 2, "strength": 5.0}, {"id": "Yeoman, Carl J", "name": "Yeoman, Carl J", "degree": 3, "strength": 6.0}, {"id": "Adhikari, Subodh", "name": "Adhikari, Subodh", "degree": 5, "strength": 16.0}, {"id": "Ahmed, Selena", "name": "Ahmed, Selena", "degree": 3, "strength": 4.0}, {"id": "Briar, Shabeg Singh", "name": "Briar, Shabeg Singh", "degree": 4, "strength": 10.0}, {"id": "Chorak, Gregory M", "name": "Chorak, Gregory M", "degree": 2, "strength": 8.0}, {"id": "Ehlert, Krista A", "name": "Ehlert, Krista A", "degree": 2, "strength": 3.0}, {"id": "Malone, Shealyn C", "name": "Malone, Shealyn C", "degree": 2, "strength": 5.0}, {"id": "Smithers, Brian V", "name": "Smithers, Brian V", "degree": 1, "strength": 1.0}], "links": [{"source": "Talbert, Luther E", "target": "Weaver, David K", "weight": 7.0}, {"source": "Talbert, Luther E", "target": "Martin, John M", "weight": 7.0}, {"source": "Talbert, Luther E", "target": "Reddy, Gadi V P", "weight": 1.0}, {"source": "Talbert, Luther E", "target": "Cook, Jason P", "weight": 9.0}, {"source": "Weaver, David K", "target": "Martin, John M", "weight": 3.0}, {"source": "Weaver, David K", "target": "Budak, Hikmet", "weight": 4.0}, {"source": "Weaver, David K", "target": "Reddy, Gadi V P", "weight": 6.0}, {"source": "Weaver, David K", "target": "Cook, Jason P", "weight": 6.0}, {"source": "Weaver, David K", "target": "Mendu, Venugopal", "weight": 1.0}, {"source": "Weaver, David K", "target": "Burkle, Laura A", "weight": 2.0}, {"source": "Weaver, David K", "target": "Menalled, Fabian D", "weight": 8.0}, {"source": "Weaver, David K", "target": "Seipel, Tim", "weight": 1.0}, {"source": "Weaver, David K", "target": "Yeoman, Carl J", "weight": 1.0}, {"source": "Weaver, David K", "target": "Adhikari, Subodh", "weight": 4.0}, {"source": "Weaver, David K", "target": "Malone, Shealyn C", "weight": 3.0}, {"source": "Giroux, Michael J", "target": "Martin, John M", "weight": 22.0}, {"source": "Giroux, Michael J", "target": "Huang, Li", "weight": 3.0}, {"source": "Giroux, Michael J", "target": "Cook, Jason P", "weight": 2.0}, {"source": "Giroux, Michael J", "target": "Chen, Chengci", "weight": 1.0}, {"source": "Martin, John M", "target": "Cook, Jason P", "weight": 3.0}, {"source": "Martin, John M", "target": "Giroux, Mike", "weight": 1.0}, {"source": "Martin, John M", "target": "Lachowiec, Jennifer", "weight": 1.0}, {"source": "Martin, John M", "target": "Briar, Shabeg Singh", "weight": 2.0}, {"source": "Huang, Li", "target": "Chen, Chengci", "weight": 2.0}, {"source": "Huang, Li", "target": "Giroux, Mike", "weight": 1.0}, {"source": "Huang, Li", "target": "Fischer, Andreas M", "weight": 1.0}, {"source": "Budak, Hikmet", "target": "Dyer, William E", "weight": 1.0}, {"source": "Dyer, William E", "target": "Lachowiec, Jennifer", "weight": 1.0}, {"source": "Jha, Prashant", "target": "Reddy, Gadi V P", "weight": 1.0}, {"source": "Reddy, Gadi V P", "target": "Mendu, Venugopal", "weight": 1.0}, {"source": "Reddy, Gadi V P", "target": "Briar, Shabeg Singh", "weight": 6.0}, {"source": "Bruckner, P L", "target": "Cook, Jason P", "weight": 6.0}, {"source": "Cook, Jason P", "target": "Chen, Chengci", "weight": 1.0}, {"source": "Cook, Jason P", "target": "Giroux, Mike", "weight": 1.0}, {"source": "Cook, Jason P", "target": "Lachowiec, Jennifer", "weight": 3.0}, {"source": "Cook, Jason P", "target": "Mendu, Venugopal", "weight": 1.0}, {"source": "Cook, Jason P", "target": "Jensen, Joseph", "weight": 2.0}, {"source": "Chen, Chengci", "target": "Lu, Chaofu", "weight": 2.0}, {"source": "Chen, Chengci", "target": "Mohammed, Yesuf Assen", "weight": 14.0}, {"source": "Chen, Chengci", "target": "Giroux, Mike", "weight": 1.0}, {"source": "Lu, Chaofu", "target": "Lachowiec, Jennifer", "weight": 1.0}, {"source": "Fischer, Andreas M", "target": "Lachowiec, Jennifer", "weight": 3.0}, {"source": "Lachowiec, Jennifer", "target": "Thum, Ryan A", "weight": 1.0}, {"source": "Lachowiec, Jennifer", "target": "Jensen, Joseph", "weight": 3.0}, {"source": "Lachowiec, Jennifer", "target": "Briar, Shabeg Singh", "weight": 1.0}, {"source": "Lachowiec, Jennifer", "target": "Chorak, Gregory M", "weight": 1.0}, {"source": "Burkle, Laura A", "target": "Flenniken, Michelle L", "weight": 1.0}, {"source": "Burkle, Laura A", "target": "Menalled, Fabian D", "weight": 2.0}, {"source": "Burkle, Laura A", "target": "Mangold, Jane M", "weight": 2.0}, {"source": "Burkle, Laura A", "target": "Adhikari, Subodh", "weight": 2.0}, {"source": "Menalled, Fabian D", "target": "Mangold, Jane M", "weight": 5.0}, {"source": "Menalled, Fabian D", "target": "Seipel, Tim", "weight": 13.0}, {"source": "Menalled, Fabian D", "target": "Burrows, Mary E", "weight": 4.0}, {"source": "Menalled, Fabian D", "target": "Yeoman, Carl J", "weight": 3.0}, {"source": "Menalled, Fabian D", "target": "Adhikari, Subodh", "weight": 7.0}, {"source": "Menalled, Fabian D", "target": "Ahmed, Selena", "weight": 2.0}, {"source": "Menalled, Fabian D", "target": "Briar, Shabeg Singh", "weight": 1.0}, {"source": "Menalled, Fabian D", "target": "Ehlert, Krista A", "weight": 1.0}, {"source": "Menalled, Fabian D", "target": "Malone, Shealyn C", "weight": 2.0}, {"source": "Mangold, Jane M", "target": "Rew, Lisa J", "weight": 10.0}, {"source": "Mangold, Jane M", "target": "Ulrich, Danielle E M", "weight": 2.0}, {"source": "Mangold, Jane M", "target": "Seipel, Tim", "weight": 1.0}, {"source": "Mangold, Jane M", "target": "Burrows, Mary E", "weight": 1.0}, {"source": "Mangold, Jane M", "target": "Ahmed, Selena", "weight": 1.0}, {"source": "Mangold, Jane M", "target": "Ehlert, Krista A", "weight": 2.0}, {"source": "Thum, Ryan A", "target": "Chorak, Gregory M", "weight": 7.0}, {"source": "Rew, Lisa J", "target": "Ulrich, Danielle E M", "weight": 2.0}, {"source": "Rew, Lisa J", "target": "Seipel, Tim", "weight": 12.0}, {"source": "Rew, Lisa J", "target": "Adhikari, Subodh", "weight": 2.0}, {"source": "Ulrich, Danielle E M", "target": "Smithers, Brian V", "weight": 1.0}, {"source": "Seipel, Tim", "target": "Burrows, Mary E", "weight": 1.0}, {"source": "Seipel, Tim", "target": "Yeoman, Carl J", "weight": 2.0}, {"source": "Seipel, Tim", "target": "Adhikari, Subodh", "weight": 1.0}, {"source": "Burrows, Mary E", "target": "Ahmed, Selena", "weight": 1.0}]};
+
+console.log("First edge:", graphData.links[0]);
+console.log("Nodes:", graphData.nodes.length);
+console.log("Edges:", graphData.links.length);
+
+const Graph = ForceGraph3D()(
+    document.getElementById("graph")
+);
+
+Graph
+    .nodeId("id")
+    .linkSource("source")
+    .linkTarget("target")
+    .graphData(graphData)
+    .backgroundColor("#FFFFFF")
+    .showNavInfo(false)
+
+    // Node appearance
+    .nodeColor(() => "#073763")
+    .nodeVal(node =>
+        1.5 + Math.sqrt(node.strength + 1) * 0.45
+    )
+
+    // Edge appearance
+    .linkColor(() => "#648FC9")
+    .linkOpacity(0.7)
+    .linkWidth(link =>
+        0.5 + Math.sqrt(Number(link.weight) || 1) * 0.35
+    );
+
+</script>
+
+</body>
+</html>
+
